@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
+
+[node name="MainScreen" instance=ExtResource( 1 )]
+
+
