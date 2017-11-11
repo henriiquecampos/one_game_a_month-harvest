@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://actors/abstract_unity.gd" type="Script" id=1]
+[ext_resource path="res://screens/market/abstract_thumbnail.gd" type="Script" id=1]
+
 
 [node name="AbstractUnity" type="Node2D"]
 

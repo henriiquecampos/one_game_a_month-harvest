@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=1]
-
-[ext_resource path="res://actors/abstract_unity.tscn" type="PackedScene" id=1]
-
-[node name="Worker" instance=ExtResource( 1 )]
-
-

@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://screens/market/market_screen.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://screens/market/thumbnail.tscn" type="PackedScene" id=4]
 
 [node name="MarketScreen" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+min_wage = "The government of your state passed a new minimum wage.
+Every worker that doesn't produce above $ %s,00 is out of the market."
+machine_regulation = "A new regulation in agricultural machines has passed in the congress.
+All machines prices raised by: %s"
+new_contract_law = "The government is intervening on current agriculture contracts, no hirers can ask for more than %s in production"
 
 [node name="Title" type="Label" parent="."]
 
@@ -15,7 +24,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 1025.0
 margin/bottom = 87.0
-text = "market"
+text = "You're on market!!"
 align = 1
 valign = 1
 autowrap = true
@@ -103,7 +112,7 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
+textures/normal = ExtResource( 3 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -153,7 +162,7 @@ margin/bottom = 132.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
+textures/normal = ExtResource( 3 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -203,7 +212,7 @@ margin/bottom = 200.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
+textures/normal = ExtResource( 3 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -253,7 +262,7 @@ margin/bottom = 268.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
+textures/normal = ExtResource( 3 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -292,7 +301,6 @@ flat = false
 
 [node name="Buying" type="VBoxContainer" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -313,7 +321,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 304.0
 margin/bottom = 14.0
-text = "Shopping"
+text = "Market"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -352,559 +360,83 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 64.0
-margin/bottom = 744.0
+margin/right = 203.0
+margin/bottom = 404.0
+custom_constants/separation = 15
 alignment = 0
 
-[node name="Thumbnail" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
+[node name="Thumbnail" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 217.0
+editor/display_folded = true
+margin/right = 203.0
 margin/bottom = 64.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail1" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 68.0
-margin/right = 64.0
-margin/bottom = 132.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail1"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail2" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 136.0
-margin/right = 64.0
-margin/bottom = 200.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail2"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail2"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail3" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 204.0
-margin/right = 64.0
-margin/bottom = 268.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail3"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail3"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail4" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 272.0
-margin/right = 64.0
-margin/bottom = 336.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail4"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail4"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail5" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 340.0
-margin/right = 64.0
-margin/bottom = 404.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail5"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail5"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail6" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 408.0
-margin/right = 64.0
-margin/bottom = 472.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail6"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail6"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail7" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 476.0
-margin/right = 64.0
-margin/bottom = 540.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail7"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail7"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail8" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 544.0
-margin/right = 64.0
-margin/bottom = 608.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail8"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail8"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail9" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 612.0
-margin/right = 64.0
-margin/bottom = 676.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail9"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail9"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail10" type="TextureButton" parent="Buying/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 680.0
-margin/right = 64.0
-margin/bottom = 744.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail10"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Soil Specialist
-Type: Worker
-Price: 2.000/m"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail10"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
+description = "Soil Specialist
+Wage: $%s,00
+Production: $%s,00
+Type: %s"
+
+[node name="Texture" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail"]
+
+params/modulate = Color( 0.636719, 0.974457, 1, 1 )
+
+[node name="Thumbnail2" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin/top = 79.0
+margin/right = 203.0
+margin/bottom = 143.0
+description = "Soil Specialist
+Wage: $%s,00
+Production: $%s,00
+Type: %s"
+
+[node name="Thumbnail3" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin/top = 158.0
+margin/right = 203.0
+margin/bottom = 222.0
+description = "Soil Specialist
+Wage: $%s,00
+Production: $%s,00
+Type: %s"
+
+[node name="Thumbnail4" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin/top = 237.0
+margin/right = 203.0
+margin/bottom = 301.0
+production = 3001
+description = "Soil Specialist
+Wage: $%s,00
+Production: $%s,00
+Type: %s"
+
+[node name="Thumbnail5" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin/top = 316.0
+margin/right = 203.0
+margin/bottom = 380.0
+production = 4000
+description = "Soil Specialist
+Wage: $%s,00
+Production: $%s,00
+Type: %s"
+
+[node name="Thumbnail1" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+margin/top = 395.0
+margin/right = 203.0
+margin/bottom = 459.0
+type = 1
+description = "Tillage Truck
+Price: $%s,00
+Monthly Costs: $%s,00
+Production: $%s,00
+Type: %s"
 
 [node name="Finish" type="Button" parent="."]
 
@@ -933,6 +465,7 @@ margin/top = 534.0
 margin/right = 577.0
 margin/bottom = 554.0
 toggle_mode = false
+click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Contracts"
@@ -971,7 +504,6 @@ max_lines_visible = -1
 
 [node name="Description" type="MarginContainer" parent="Info"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1009,6 +541,23 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Button" type="Button" parent="Info"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 315.0
+margin/top = 0.0
+margin/right = 384.0
+margin/bottom = 20.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "close"
+flat = false
 
 [node name="ContractPanel" type="ColorFrame" parent="."]
 
@@ -1225,4 +774,98 @@ shortcut = null
 text = "About"
 flat = false
 
+[node name="Button" type="Button" parent="ContractPanel"]
 
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 745.0
+margin/top = 0.0
+margin/right = 791.0
+margin/bottom = 20.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "close"
+flat = false
+
+[node name="Confirm" type="Panel" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 384.0
+margin/top = 262.0
+margin/right = 640.0
+margin/bottom = 358.0
+
+[node name="Title" type="Label" parent="Confirm"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 247.0
+margin/bottom = 74.0
+text = "Text"
+align = 3
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Ok" type="Button" parent="Confirm"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 27.0
+margin/top = 76.0
+margin/right = 106.0
+margin/bottom = 96.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Ok"
+flat = false
+
+[node name="Cancel" type="Button" parent="Confirm"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 146.0
+margin/top = 76.0
+margin/right = 225.0
+margin/bottom = 96.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Cancel"
+flat = false
+
+[connection signal="released" from="Contracts" to="Info" method="hide"]
+
+[connection signal="released" from="Contracts" to="ContractPanel" method="show"]
+
+[connection signal="released" from="Info/Button" to="Info" method="hide"]
+
+[connection signal="released" from="ContractPanel/Button" to="ContractPanel" method="hide"]
+
+[connection signal="released" from="Confirm/Ok" to="Confirm" method="_on_ok_released"]
+
+[connection signal="released" from="Confirm/Cancel" to="Confirm" method="hide"]
+
+
+[editable path="Buying/PanelContainer/ScrollingContainer/List/Thumbnail"]
