@@ -2,17 +2,18 @@
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/market/market_screen.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://screens/market/thumbnail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://screens/market/thumbnail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://screens/market/contract.tscn" type="PackedScene" id=4]
 
 [node name="MarketScreen" instance=ExtResource( 1 )]
 
+focus/ignore_mouse = true
 script/script = ExtResource( 2 )
 min_wage = "The government of your state passed a new minimum wage.
 Every worker that doesn't produce above $ %s,00 is out of the market."
 machine_regulation = "A new regulation in agricultural machines has passed in the congress.
-All machines prices raised by: %s"
-new_contract_law = "The government is intervening on current agriculture contracts, no hirers can ask for more than %s in production"
+All machines prices raised by: {tax}%"
+new_contract_law = "The government is intervening on current agriculture contracts, no hirers can demand more than ${amount},00 in production"
 
 [node name="Title" type="Label" parent="."]
 
@@ -32,272 +33,6 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="Selling" type="VBoxContainer" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 715.0
-margin/top = 100.0
-margin/right = 1019.0
-margin/bottom = 598.0
-alignment = 0
-
-[node name="Title" type="Label" parent="Selling"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 304.0
-margin/bottom = 14.0
-text = "In your Farm"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="PanelContainer" type="PanelContainer" parent="Selling"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 18.0
-margin/right = 304.0
-margin/bottom = 498.0
-
-[node name="ScrollingContainer" type="ScrollContainer" parent="Selling/PanelContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 297.0
-margin/bottom = 473.0
-scroll/horizontal = false
-scroll/vertical = true
-
-[node name="List" type="VBoxContainer" parent="Selling/PanelContainer/ScrollingContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 64.0
-margin/bottom = 268.0
-alignment = 0
-
-[node name="Thumbnail" type="TextureButton" parent="Selling/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 64.0
-margin/bottom = 64.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Tillage Truck
-Type: Machine
-Price: 20.000"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail1" type="TextureButton" parent="Selling/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 68.0
-margin/right = 64.0
-margin/bottom = 132.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail1"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Tillage Truck
-Type: Machine
-Price: 20.000"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail1"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail2" type="TextureButton" parent="Selling/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 136.0
-margin/right = 64.0
-margin/bottom = 200.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail2"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Tillage Truck
-Type: Machine
-Price: 20.000"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail2"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
-
-[node name="Thumbnail3" type="TextureButton" parent="Selling/PanelContainer/ScrollingContainer/List"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 204.0
-margin/right = 64.0
-margin/bottom = 268.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Description" type="Label" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail3"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 73.0
-margin/top = 1.0
-margin/right = 286.0
-margin/bottom = 66.0
-text = "Tillage Truck
-Type: Machine
-Price: 20.000"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Info" type="Button" parent="Selling/PanelContainer/ScrollingContainer/List/Thumbnail3"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 226.0
-margin/top = 21.0
-margin/right = 271.0
-margin/bottom = 41.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Info"
-flat = false
 
 [node name="Buying" type="VBoxContainer" parent="."]
 
@@ -360,83 +95,74 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 203.0
-margin/bottom = 404.0
+margin/right = 162.0
+margin/bottom = 301.0
 custom_constants/separation = 15
 alignment = 0
 
-[node name="Thumbnail" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+[node name="Thumbnail" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
+] instance=ExtResource( 3 )]
 
-editor/display_folded = true
-margin/right = 203.0
+margin/right = 162.0
 margin/bottom = 64.0
-description = "Soil Specialist
-Wage: $%s,00
-Production: $%s,00
-Type: %s"
+price = 0.0
+monthly_cost = 250.55
+production = 150.65
+type = 0
+name = "Soil Specialist"
+description = "{name}
+Wage: ${wage}
+Production: ${production}
+Type: {type}"
 
-[node name="Texture" parent="Buying/PanelContainer/ScrollingContainer/List/Thumbnail"]
-
-params/modulate = Color( 0.636719, 0.974457, 1, 1 )
-
-[node name="Thumbnail2" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+[node name="Thumbnail5" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
+] instance=ExtResource( 3 )]
 
 editor/display_folded = true
 margin/top = 79.0
-margin/right = 203.0
+margin/right = 162.0
 margin/bottom = 143.0
-description = "Soil Specialist
-Wage: $%s,00
-Production: $%s,00
-Type: %s"
+price = 5000.0
+name = "Tillage Machine"
+description = "{name}
+Price: ${price}
+Monthly Costs: ${monthly}
+Production: ${production}
+Type: {type}"
 
-[node name="Thumbnail3" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+[node name="Thumbnail6" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
+] instance=ExtResource( 3 )]
 
 editor/display_folded = true
 margin/top = 158.0
-margin/right = 203.0
+margin/right = 162.0
 margin/bottom = 222.0
-description = "Soil Specialist
-Wage: $%s,00
-Production: $%s,00
-Type: %s"
+price = 750.0
+name = "Tillage Machine"
+description = "{name}
+Price: ${price}
+Monthly Costs: ${monthly}
+Production: ${production}
+Type: {type}"
 
-[node name="Thumbnail4" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
+[node name="Thumbnail7" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
+] instance=ExtResource( 3 )]
 
 editor/display_folded = true
 margin/top = 237.0
-margin/right = 203.0
+margin/right = 162.0
 margin/bottom = 301.0
-production = 3001
-description = "Soil Specialist
-Wage: $%s,00
-Production: $%s,00
-Type: %s"
-
-[node name="Thumbnail5" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
-
-editor/display_folded = true
-margin/top = 316.0
-margin/right = 203.0
-margin/bottom = 380.0
-production = 4000
-description = "Soil Specialist
-Wage: $%s,00
-Production: $%s,00
-Type: %s"
-
-[node name="Thumbnail1" parent="Buying/PanelContainer/ScrollingContainer/List" instance=ExtResource( 4 )]
-
-editor/display_folded = true
-margin/top = 395.0
-margin/right = 203.0
-margin/bottom = 459.0
-type = 1
-description = "Tillage Truck
-Price: $%s,00
-Monthly Costs: $%s,00
-Production: $%s,00
-Type: %s"
+price = 500.0
+name = "Tillage Machine"
+description = "{name}
+Price: ${price}
+Monthly Costs: ${monthly}
+Production: ${production}
+Type: {type}"
 
 [node name="Finish" type="Button" parent="."]
 
@@ -642,137 +368,33 @@ margin/bottom = 530.0
 custom_constants/separation = 30
 alignment = 0
 
-[node name="Contract" type="CheckBox" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer"]
+[node name="Contract" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 572.0
-margin/bottom = 23.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-text = "Contract I"
-flat = false
-align = 0
+demand = 1411
 
-[node name="Button" type="Button" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer/Contract"]
+[node name="Contract1" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 475.0
-margin/top = 0.0
-margin/right = 559.0
-margin/bottom = 20.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "About"
-flat = false
-
-[node name="Contract1" type="CheckBox" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
 margin/top = 53.0
-margin/right = 572.0
 margin/bottom = 76.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-text = "Contract II"
-flat = false
-align = 0
+demand = 2768
 
-[node name="Button" type="Button" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer/Contract1"]
+[node name="Contract2" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 475.0
-margin/top = 0.0
-margin/right = 559.0
-margin/bottom = 20.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "About"
-flat = false
-
-[node name="Contract2" type="CheckBox" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
 margin/top = 106.0
-margin/right = 572.0
 margin/bottom = 129.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-text = "Contract III"
-flat = false
-align = 0
+demand = 7218
 
-[node name="Button" type="Button" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer/Contract2"]
+[node name="Contract3" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 475.0
-margin/top = 0.0
-margin/right = 559.0
-margin/bottom = 20.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "About"
-flat = false
-
-[node name="Contract3" type="CheckBox" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
 margin/top = 159.0
-margin/right = 572.0
 margin/bottom = 182.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-text = "Contract IV"
-flat = false
-align = 0
+demand = 806
 
-[node name="Button" type="Button" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer/Contract3"]
+[node name="Contract4" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 475.0
-margin/top = 0.0
-margin/right = 559.0
-margin/bottom = 20.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "About"
-flat = false
+margin/top = 212.0
+margin/bottom = 235.0
+demand = 12841
 
 [node name="Button" type="Button" parent="ContractPanel"]
 
@@ -855,9 +477,9 @@ shortcut = null
 text = "Cancel"
 flat = false
 
-[connection signal="released" from="Contracts" to="Info" method="hide"]
-
 [connection signal="released" from="Contracts" to="ContractPanel" method="show"]
+
+[connection signal="released" from="Contracts" to="Info" method="hide"]
 
 [connection signal="released" from="Info/Button" to="Info" method="hide"]
 
@@ -868,4 +490,3 @@ flat = false
 [connection signal="released" from="Confirm/Cancel" to="Confirm" method="hide"]
 
 
-[editable path="Buying/PanelContainer/ScrollingContainer/List/Thumbnail"]

@@ -5,5 +5,7 @@
 [node name="Government" type="Node"]
 
 script/script = ExtResource( 1 )
+minimum_wage = 2000
+minimum_demand = 4000
 
 

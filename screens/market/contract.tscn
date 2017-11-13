@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://screens/market/contract.gd" type="Script" id=1]
+
+[node name="Contract" type="CheckBox" groups=[
+"contracts",
+]]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 572.0
+margin/bottom = 23.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Contract I"
+flat = false
+align = 0
+script/script = ExtResource( 1 )
+description = "Hello I want you to produce about {production} in wheat."
+demand = 8648
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 475.0
+margin/top = 0.0
+margin/right = 559.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "About"
+flat = false
+
+
