@@ -1,0 +1,231 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="Storehouse" type="YSort"]
+
+sort/enabled = true
+
+[node name="Event" type="Position2D" parent="."]
+
+transform/pos = Vector2( 177.866, 346.688 )
+
+[node name="Warehouse" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 563.523, 238.639 )
+transform/scale = Vector2( 6.59847, 3.55862 )
+texture = ExtResource( 1 )
+modulate = Color( 0.292969, 0.209427, 0.209427, 1 )
+
+[node name="Label" type="Label" parent="Warehouse"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -34.0
+margin/top = -32.0
+margin/right = 35.0
+margin/bottom = -18.0
+text = "warehouse"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Truck" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 121.764, 438.184 )
+transform/scale = Vector2( 3.54149, 1.90996 )
+texture = ExtResource( 1 )
+modulate = Color( 0.479732, 0.441269, 0.933594, 1 )
+
+[node name="Label" type="Label" parent="Truck"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -34.0
+margin/top = -32.0
+margin/right = 35.0
+margin/bottom = -18.0
+text = "Truck"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Tillage" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 742.896, 317.021 )
+transform/scale = Vector2( 3.54149, 1.90996 )
+texture = ExtResource( 1 )
+modulate = Color( 0.768203, 0.441269, 0.933594, 1 )
+
+[node name="Label" type="Label" parent="Tillage"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -31.0
+margin/top = -32.0
+margin/right = 38.0
+margin/bottom = -18.0
+text = "Tillage"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Harvester" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 838.026, 529.882 )
+transform/scale = Vector2( 3.54149, 1.90996 )
+texture = ExtResource( 1 )
+modulate = Color( 0.933594, 0.441269, 0.625891, 1 )
+
+[node name="Label" type="Label" parent="Harvester"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -33.0
+margin/top = -32.0
+margin/right = 36.0
+margin/bottom = -18.0
+text = "Harvester"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SoilSpecialist" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 858.131, 191.912 )
+texture = ExtResource( 1 )
+modulate = Color( 0.441269, 0.933594, 0.645122, 1 )
+
+[node name="Label" type="Label" parent="SoilSpecialist"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -44.0
+margin/top = -46.0
+margin/right = 44.0
+margin/bottom = -32.0
+text = "Soil Specialist"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="BotanicEngineer" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 908.18, 220.908 )
+texture = ExtResource( 1 )
+modulate = Color( 0.883592, 0.933594, 0.441269, 1 )
+
+[node name="Label" type="Label" parent="BotanicEngineer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -44.0
+margin/top = -46.0
+margin/right = 44.0
+margin/bottom = -32.0
+text = "Agro Engineer"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Mechanic" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 830.749, 369.041 )
+texture = ExtResource( 1 )
+modulate = Color( 0.976563, 0.409365, 0.278473, 1 )
+
+[node name="Label" type="Label" parent="Mechanic"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -44.0
+margin/top = -46.0
+margin/right = 44.0
+margin/bottom = -32.0
+text = "Mechanic"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Plumber" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 528.567, 329.945 )
+texture = ExtResource( 1 )
+modulate = Color( 0.992188, 0.151154, 0.269424, 1 )
+
+[node name="Label" type="Label" parent="Plumber"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -44.0
+margin/top = -46.0
+margin/right = 44.0
+margin/bottom = -32.0
+text = "Plumber"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Gatherer" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 737.282, 564.443 )
+texture = ExtResource( 1 )
+modulate = Color( 0.307755, 0.847987, 0.972656, 1 )
+
+[node name="Label" type="Label" parent="Gatherer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -44.0
+margin/top = -46.0
+margin/right = 44.0
+margin/bottom = -32.0
+text = "Gatherer"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

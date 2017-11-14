@@ -2,7 +2,6 @@
 
 [node name="Selling" type="VBoxContainer"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -64,6 +63,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
+custom_constants/separation = 15
 alignment = 0
 
 

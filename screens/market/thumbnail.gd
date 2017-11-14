@@ -7,6 +7,7 @@ export (int, "Worker", "Machine") var type = 0
 export (float) var production = 10
 export (String) var name = "Thumbnail"
 export (int, "BUYING", "SELLING") var trade_type = 0
+export (String, FILE, ".tscn") var sprite
 
 signal thumbnail_released(object, trade)
 func _ready():

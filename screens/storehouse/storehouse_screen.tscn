@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/storehouse/storehouse_screen.gd" type="Script" id=2]
+[ext_resource path="res://levels/storehouse/Storehouse.tscn" type="PackedScene" id=3]
+
+[node name="StorehouseScreen" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+
+[node name="Storehouse" parent="." instance=ExtResource( 3 )]
+
+

@@ -10,10 +10,15 @@
 focus/ignore_mouse = true
 script/script = ExtResource( 2 )
 min_wage = "The government of your state passed a new minimum wage.
+
 Every worker that doesn't produce above $ %s,00 is out of the market."
 machine_regulation = "A new regulation in agricultural machines has passed in the congress.
+
 All machines prices raised by: {tax}%"
-new_contract_law = "The government is intervening on current agriculture contracts, no hirers can demand more than ${amount},00 in production"
+new_contract_law = "The government is intervening on current agriculture contracts. 
+
+No hirers can demand more than ${amount},00 in production"
+next_scene = "res://screens/storehouse/storehouse_screen.tscn"
 
 [node name="Title" type="Label" parent="."]
 
@@ -96,19 +101,38 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 162.0
-margin/bottom = 301.0
+margin/bottom = 617.0
 custom_constants/separation = 15
 alignment = 0
 
 [node name="Thumbnail" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
 "buying",
+"gatherer",
 ] instance=ExtResource( 3 )]
 
 margin/right = 162.0
 margin/bottom = 64.0
 price = 0.0
-monthly_cost = 250.55
-production = 150.65
+monthly_cost = 800.0
+production = 670.0
+type = 0
+name = "Gatherer"
+description = "{name}
+Wage: ${wage}
+Production: ${production}
+Type: {type}"
+
+[node name="Thumbnail1" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
+"specialist",
+] instance=ExtResource( 3 )]
+
+margin/top = 79.0
+margin/right = 162.0
+margin/bottom = 143.0
+price = 0.0
+monthly_cost = 3000.0
+production = 3100.0
 type = 0
 name = "Soil Specialist"
 description = "{name}
@@ -116,16 +140,73 @@ Wage: ${wage}
 Production: ${production}
 Type: {type}"
 
+[node name="Thumbnail2" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
+"mechanic",
+] instance=ExtResource( 3 )]
+
+margin/top = 158.0
+margin/right = 162.0
+margin/bottom = 222.0
+price = 0.0
+monthly_cost = 1200.0
+production = 1500.0
+type = 0
+name = "Mechanic"
+description = "{name}
+Wage: ${wage}
+Production: ${production}
+Type: {type}"
+
+[node name="Thumbnail3" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"engineer",
+"buying",
+] instance=ExtResource( 3 )]
+
+margin/top = 237.0
+margin/right = 162.0
+margin/bottom = 301.0
+price = 0.0
+monthly_cost = 1200.0
+production = 1500.0
+type = 0
+name = "Botanic Engineer"
+description = "{name}
+Wage: ${wage}
+Production: ${production}
+Type: {type}"
+
+[node name="Thumbnail4" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
+"plumber",
+] instance=ExtResource( 3 )]
+
+margin/top = 316.0
+margin/right = 162.0
+margin/bottom = 380.0
+price = 0.0
+monthly_cost = 1200.0
+production = 1500.0
+type = 0
+name = "Botanic Engineer"
+description = "{name}
+Wage: ${wage}
+Production: ${production}
+Type: {type}"
+
 [node name="Thumbnail5" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"tillage",
 "buying",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
-margin/top = 79.0
+margin/top = 395.0
 margin/right = 162.0
-margin/bottom = 143.0
+margin/bottom = 459.0
 price = 5000.0
-name = "Tillage Machine"
+monthly_cost = 310.0
+production = 6000.0
+name = "Tillager"
 description = "{name}
 Price: ${price}
 Monthly Costs: ${monthly}
@@ -133,15 +214,17 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"truck",
 "buying",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
-margin/top = 158.0
+margin/top = 474.0
 margin/right = 162.0
-margin/bottom = 222.0
+margin/bottom = 538.0
 price = 750.0
-name = "Tillage Machine"
+production = 1800.0
+name = "Truck"
 description = "{name}
 Price: ${price}
 Monthly Costs: ${monthly}
@@ -150,14 +233,16 @@ Type: {type}"
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
 "buying",
+"harvester",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
-margin/top = 237.0
+margin/top = 553.0
 margin/right = 162.0
-margin/bottom = 301.0
+margin/bottom = 617.0
 price = 500.0
-name = "Tillage Machine"
+monthly_cost = 500.0
+name = "Harvester"
 description = "{name}
 Price: ${price}
 Monthly Costs: ${monthly}
@@ -175,6 +260,7 @@ margin/top = 564.0
 margin/right = 577.0
 margin/bottom = 584.0
 toggle_mode = false
+click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Finish"
@@ -476,6 +562,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Cancel"
 flat = false
+
+[connection signal="released" from="Finish" to="." method="_on_finish_released"]
 
 [connection signal="released" from="Contracts" to="ContractPanel" method="show"]
 
