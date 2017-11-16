@@ -12,15 +12,14 @@ enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE}
 
 func set_unities(unit, type):
 	if type == ADD:
-		set_money(unit.price, BUY)
 		set_monthly_expenses(unit.monthly_cost, HIRE)
 		set_production(production + unit.production)
+		company.add_child(unit)
 	elif type == REMOVE:
-		set_money(unit.price, SELL)
 		set_monthly_expenses(unit.monthly_cost, FIRE)
 		set_production(production - unit.production)
-		
-	print("%s %s"%[money, monthly_expenses])
+		company.remove_child(unit)
+
 func set_monthly_expenses(amount, type):
 	if type == HIRE:
 		monthly_expenses += amount

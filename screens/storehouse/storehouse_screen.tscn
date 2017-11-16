@@ -7,7 +7,31 @@
 [node name="StorehouseScreen" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
+layoff = null
+inspection = "res://screens/storehouse/inspection.tscn"
+strike = "res://screens/storehouse/strike.tscn"
 
 [node name="Storehouse" parent="." instance=ExtResource( 3 )]
 
+editor/display_folded = true
+z/z = -5
 
+[node name="Verify" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 151.0
+margin/top = 268.0
+margin/right = 201.0
+margin/bottom = 288.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Verify"
+flat = false
+
+
+[editable path="Storehouse"]

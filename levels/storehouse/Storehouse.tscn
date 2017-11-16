@@ -10,6 +10,12 @@ sort/enabled = true
 
 transform/pos = Vector2( 177.866, 346.688 )
 
+[node name="Inspection" type="Sprite" parent="Event"]
+
+visibility/visible = false
+texture = ExtResource( 1 )
+modulate = Color( 1, 0, 0.210938, 1 )
+
 [node name="Warehouse" type="Sprite" parent="."]
 
 editor/display_folded = true

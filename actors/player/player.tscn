@@ -113,6 +113,15 @@ scale = Vector2( 1, 1 )
 visibility/visible = false
 custom_constants/separation = 15
 
+[node name="PanelContainer" parent="Company/Unities"]
+
+margin/top = 29.0
+
+[node name="ScrollingContainer" parent="Company/Unities/PanelContainer"]
+
+margin/bottom = 462.0
+
 [connection signal="toggled" from="Info/Button" to="." method="_on_info_toggled"]
 
 
+[editable path="Company/Unities"]

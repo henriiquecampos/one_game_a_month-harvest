@@ -37,4 +37,15 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="ReferenceFrame" type="ReferenceFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+
 

@@ -1,0 +1,138 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Control
+
+onready var description = get_node(\"Panel/Description/Text\")
+onready var options = get_node(\"Panel/Options\")
+var raise
+var production = 0
+var total = 0
+
+func _ready():
+	for o in options.get_children():
+		o.connect(\"released\", self, \"_option_chosen\", [o.get_index()])
+		
+	raise = rand_range(0.0,0.25)
+	for w in get_tree().get_nodes_in_group(\"worker\"):
+		production += w.production
+		total += w.monthly_cost * raise
+	total += player.monthly_expenses
+	var d = description.get_text().format({\"raise\":floor(raise * 100), \"amount\":int(production), \"total\":int(total)})
+	description.set_text(d)
+	
+func _option_chosen(option):
+	if option == 0:
+		player.set_production(player.production - production)
+	else:
+		player.set_monthly_expenses(total)
+	queue_free()"
+
+[node name="Strike" type="ColorFrame"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.140625, 0.140625, 0.140625, 0.705882 )
+script/script = SubResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 332.0
+margin/top = 214.0
+margin/right = 711.0
+margin/bottom = 406.0
+
+[node name="Description" type="ScrollContainer" parent="Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 10.0
+margin/top = 8.0
+margin/right = 364.0
+margin/bottom = 139.0
+scroll/horizontal = false
+scroll/vertical = true
+
+[node name="Text" type="Label" parent="Panel/Description"]
+
+rect/min_size = Vector2( 0, 100 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 354.0
+margin/bottom = 131.0
+text = "Your workers started a strike in order to increase their wage. They want to negociate a raise of {raise}%:
+
+Deny raise for a loss of ${amount},00 in production
+
+Agree with the raise for a total of ${total},00 in monthly expenses"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Options" type="HBoxContainer" parent="Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 18.0
+margin/top = 150.0
+margin/right = 360.0
+margin/bottom = 195.0
+custom_constants/separation = 15
+alignment = 0
+
+[node name="Deny" type="Button" parent="Panel/Options"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 1
+margin/left = 0.0
+margin/top = 12.0
+margin/right = 163.0
+margin/bottom = 32.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Deny"
+flat = false
+
+[node name="Agree" type="Button" parent="Panel/Options"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 1
+margin/left = 178.0
+margin/top = 12.0
+margin/right = 342.0
+margin/bottom = 32.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Agree"
+flat = false
+
+

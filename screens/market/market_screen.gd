@@ -3,16 +3,17 @@ const event_scene = preload("res://screens/market/event.tscn")
 export (String, MULTILINE) var min_wage
 export (String, MULTILINE) var machine_regulation
 export (String, MULTILINE) var new_contract_law
-export (String, FILE, "*tscn") var next_scene
+export (String, FILE, "*.tscn") var next_scene
 
 func _ready():
-	player.get_node("Company/Unities").show()
 	for b in get_tree().get_nodes_in_group("buying"):
 		b.get_node("Button").connect("released", self, "buy_unit", [b])
 	for c in get_tree().get_nodes_in_group("contracts"):
 		c.connect("toggled", self, "sign_new_contract", [c])
 	for s in get_tree().get_nodes_in_group("selling"):
 		s.get_node("Button").connect("released", self, "sell_unit", [s])
+	yield(get_node("Tween"), "tween_complete")
+	player.get_node("Company/Unities").show()
 
 func _execute_event(event):
 	._execute_event(event)
@@ -46,18 +47,18 @@ func _execute_event(event):
 	
 func buy_unit(unit):
 	if (player.money - unit.price) >= 0:
-		player.set_unities(unit, player.ADD)
+		player.set_money(unit.price, player.BUY)
 		var u = unit.duplicate()
 		u.price *= 0.5
 		u.remove_from_group("buying")
 		u.add_to_group("selling")
 		u.get_node("Button").connect("released", self, "sell_unit", [u])
-		player.company.add_child(u)
 		u.update_description()
+		player.set_unities(u, player.ADD)
 
 func sell_unit(unit):
+	player.set_money(unit.price, player.SELL)
 	player.set_unities(unit, player.REMOVE)
-	unit.queue_free()
 	
 func sign_new_contract(signed, contract):
 	if signed:
