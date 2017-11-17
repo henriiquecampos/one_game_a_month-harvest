@@ -91,11 +91,13 @@ margin/right = 273.0
 margin/bottom = 311.0
 text = "Money: ${money},00
 
-Monthly Production: ${production},00
+Capita Production: ${production},00
 
 Monthly Expenses: ${expenses},00
 
-Contracts Total Demands: ${demand},00"
+Contracts Total Demands: ${demand},00
+
+Potential Production: ${tiles},00"
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -120,11 +122,6 @@ margin/top = 29.0
 [node name="ScrollingContainer" parent="Company/Unities/PanelContainer"]
 
 margin/bottom = 462.0
-
-[node name="List" parent="Company/Unities/PanelContainer/ScrollingContainer"]
-
-margin/right = 162.0
-margin/bottom = 301.0
 
 [connection signal="toggled" from="Info/Button" to="." method="_on_info_toggled"]
 

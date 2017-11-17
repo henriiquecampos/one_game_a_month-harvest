@@ -10,7 +10,7 @@ script/script = ExtResource( 2 )
 layoff = "res://screens/storehouse/layoff.tscn"
 inspection = "res://screens/storehouse/inspection.tscn"
 strike = "res://screens/storehouse/strike.tscn"
-next_scene = null
+next_scene = "res://screens/harvest/harvest_screen.tscn"
 
 [node name="Storehouse" parent="." instance=ExtResource( 3 )]
 

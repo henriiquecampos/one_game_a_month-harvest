@@ -1,10 +1,12 @@
 extends Node
 
 var money = 1000000 setget set_money
-var production = 0 setget set_production
+var production = 100 setget set_production
 var monthly_expenses = 0 setget set_monthly_expenses
 var unities = 0 setget set_unities
 var contracts = 0 setget set_contracts,get_contracts
+var tile_price = 50
+var total_tiles = 0
 onready var info_node = get_node("Info/Panel/MarginContainer/Text")
 onready var info_text = get_node("Info/Panel/MarginContainer/Text").get_text()
 onready var company = get_node("Company/Unities/PanelContainer/ScrollingContainer/List")
@@ -54,5 +56,5 @@ func _on_info_toggled( pressed ):
 		get_node("Info/Background").hide()
 
 func update_info():
-	var d = info_text.format({"money":money, "production":production, "expenses":monthly_expenses, "demand":contracts})
+	var d = info_text.format({"money":money, "production":production, "expenses":monthly_expenses, "demand":contracts, "tiles":total_tiles})
 	info_node.set_text(d)

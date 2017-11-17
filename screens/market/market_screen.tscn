@@ -143,9 +143,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail2" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"mechanic",
 "buying",
 "worker",
+"mechanic",
 ] instance=ExtResource( 3 )]
 
 margin/top = 158.0
@@ -163,8 +163,8 @@ Type: {type}"
 
 [node name="Thumbnail3" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
 "buying",
-"engineer",
 "worker",
+"engineer",
 ] instance=ExtResource( 3 )]
 
 margin/top = 237.0
@@ -200,9 +200,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"tillage",
-"machines",
 "buying",
+"machines",
+"tillage",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -220,9 +220,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"machines",
 "buying",
 "truck",
+"machines",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -239,9 +239,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"harvester",
-"machines",
 "buying",
+"machines",
+"harvester",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true

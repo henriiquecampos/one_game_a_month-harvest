@@ -1,14 +1,65 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/harvest/harvest_screen.gd" type="Script" id=2]
 [ext_resource path="res://levels/harvest/harvest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/harvest/tileset.tres" type="TileSet" id=4]
+
+[sub_resource type="GDScript" id=1]
+
+resource/name = "field_tales"
+script/source = "extends TileMap
+
+var already_pressed = false
+signal tiles_changed(tilemap)
+func _ready():
+	set_process(true)
+	
+func _process(delta):
+	var cell = world_to_map(get_local_mouse_pos())
+	if cell.x <= 10 and cell.x >= 0 and cell.y <= 10 and cell.y >= 0:
+		if Input.is_mouse_button_pressed(1):
+			if (get_cell(cell.x, cell.y)) == 1:
+				set_cell(cell.x, cell.y, 0)
+				player.set_money(50, player.BUY)
+				player.total_tiles = get_used_cells_by_id(0).size() * player.tile_price
+				emit_signal(\"tiles_changed\", self)
+		elif Input.is_mouse_button_pressed(2):
+			if (get_cell(cell.x, cell.y)) == 0:
+				set_cell(cell.x, cell.y, 1)
+				player.set_money(25, player.SELL)
+				player.total_tiles = get_used_cells_by_id(0).size() * player.tile_price
+				emit_signal(\"tiles_changed\", self)"
 
 [node name="HarvestScreen" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
+next_scene = "res://screens/market/market_screen.tscn"
 
 [node name="Harvest" parent="." instance=ExtResource( 3 )]
+
+[node name="Field" type="Node2D" parent="Harvest"]
+
+transform/pos = Vector2( 252.332, 132.689 )
+
+[node name="Tiles" type="TileMap" parent="Harvest/Field"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 10, 1, 65536, 1, 65537, 1, 65538, 1, 65539, 1, 65540, 1, 65541, 1, 65542, 1, 65543, 1, 65544, 1, 65545, 1, 65546, 1, 131072, 1, 131073, 1, 131074, 1, 131075, 1, 131076, 1, 131077, 1, 131078, 1, 131079, 1, 131080, 1, 131081, 1, 131082, 1, 196608, 1, 196609, 1, 196610, 1, 196611, 1, 196612, 1, 196613, 1, 196614, 1, 196615, 1, 196616, 1, 196617, 1, 196618, 1, 262144, 1, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 1, 262153, 1, 262154, 1, 327680, 1, 327681, 1, 327682, 1, 327683, 1, 327684, 1, 327685, 1, 327686, 1, 327687, 1, 327688, 1, 327689, 1, 327690, 1, 393216, 1, 393217, 1, 393218, 1, 393219, 1, 393220, 1, 393221, 1, 393222, 1, 393223, 1, 393224, 1, 393225, 1, 393226, 1 )
+script/script = SubResource( 1 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 
@@ -17,9 +68,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 380.0
-margin/top = 106.0
+margin/top = 71.0
 margin/right = 685.0
-margin/bottom = 122.0
+margin/bottom = 87.0
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
@@ -29,22 +80,23 @@ range/exp_edit = false
 range/rounded = false
 percent/visible = false
 
-[node name="Title" type="Label" parent="ProgressBar"]
+[node name="Time" type="Label" parent="ProgressBar"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 77.0
+margin/left = 6.0
 margin/top = -22.0
-margin/right = 246.0
+margin/right = 303.0
 margin/bottom = -8.0
-text = "Harvesting for: {time}/30"
+text = "Harvesting for: {time}/30 days"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label" type="Label" parent="ProgressBar"]
+[node name="Amount" type="Label" parent="ProgressBar"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -59,5 +111,25 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 472.0
+margin/top = 98.0
+margin/right = 594.0
+margin/bottom = 121.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Start Harvest"
+flat = false
+
+[connection signal="tiles_changed" from="Harvest/Field/Tiles" to="." method="_on_tiles_changed"]
+
+[connection signal="toggled" from="Button" to="." method="_on_harvest_toggled"]
 
 
