@@ -121,6 +121,11 @@ margin/top = 29.0
 
 margin/bottom = 462.0
 
+[node name="List" parent="Company/Unities/PanelContainer/ScrollingContainer"]
+
+margin/right = 162.0
+margin/bottom = 301.0
+
 [connection signal="toggled" from="Info/Button" to="." method="_on_info_toggled"]
 
 

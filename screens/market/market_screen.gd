@@ -24,9 +24,10 @@ func _execute_event(event):
 		if ceil(government.minimum_wage) < 9999:
 			government.minimum_wage = ceil(rand_range(government.minimum_wage, government.minimum_wage + 2000))
 			description.set_text(min_wage%government.minimum_wage)
-			for worker in get_node("Buying/PanelContainer/ScrollingContainer/List").get_children():
+			for worker in get_tree().get_nodes_in_group("buying"):
 				if worker.type == 0 and worker.production < government.minimum_wage:
-					worker.queue_free()
+					if not worker.is_in_group("gatherer"):
+						worker.queue_free()
 		else:
 			_execute_event(event +1)
 	elif event == EVENT_2:

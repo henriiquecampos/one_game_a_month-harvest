@@ -8,7 +8,7 @@ var contracts = 0 setget set_contracts,get_contracts
 onready var info_node = get_node("Info/Panel/MarginContainer/Text")
 onready var info_text = get_node("Info/Panel/MarginContainer/Text").get_text()
 onready var company = get_node("Company/Unities/PanelContainer/ScrollingContainer/List")
-enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE}
+enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE, SET}
 
 func set_unities(unit, type):
 	if type == ADD:
@@ -18,13 +18,16 @@ func set_unities(unit, type):
 	elif type == REMOVE:
 		set_monthly_expenses(unit.monthly_cost, FIRE)
 		set_production(production - unit.production)
+		unit.queue_free()
 		company.remove_child(unit)
 
-func set_monthly_expenses(amount, type):
+func set_monthly_expenses(amount, type = 6):
 	if type == HIRE:
 		monthly_expenses += amount
 	elif type == FIRE:
 		monthly_expenses -= amount
+	else:
+		monthly_expenses = amount
 		
 func set_money(amount, type):
 	if type == SELL:

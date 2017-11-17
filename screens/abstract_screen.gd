@@ -12,7 +12,7 @@ func _ready():
 	t.start()
 	yield(t, "tween_complete")
 	player.get_node("Info/Button").show()
-	_execute_event(2)
+	_execute_event(0)
 
 func _execute_event(event):
 	pass

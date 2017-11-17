@@ -2,6 +2,7 @@
 
 [sub_resource type="GDScript" id=1]
 
+resource/name = "inspection"
 script/source = "extends Control
 var machine
 var bribe
@@ -20,15 +21,15 @@ func _ready():
 	
 func _option_chosen(option):
 	if option == 0:
-		print(\"Bribe\")
-		player.set_money(bribe, player.SELL)
-	elif option == 1:
-		print(\"Pay Fines\")
-		player.set_money(fine, player.SELL)
-	elif option == 2:
 		print(\"confiscate\")
 		player.set_unities(machine, player.REMOVE)
 		get_parent().populate_unities()
+	elif option == 1:
+		print(\"Bribe\")
+		player.set_money(bribe, player.SELL)
+	elif option == 2:
+		print(\"Pay Fines\")
+		player.set_money(fine, player.SELL)
 	queue_free()
 	"
 
@@ -85,9 +86,9 @@ text = "Some concorrents asked the Government Agroculture Fiscalization Agency t
 
 Therefore you will have to either:
 
+Let {machine} be confiscated
 Bribe the Inspector for ${amount},00
-Pay the fine of ${fine},00 
-Let {machine} be confiscated"
+Pay the fine of ${fine},00 "
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -105,6 +106,23 @@ margin/right = 379.0
 margin/bottom = 195.0
 custom_constants/separation = 15
 alignment = 0
+
+[node name="Confiscate" type="Button" parent="Panel/Options"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 1
+margin/left = 262.0
+margin/top = 12.0
+margin/right = 379.0
+margin/bottom = 32.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Confiscate"
+flat = false
 
 [node name="Bribe" type="Button" parent="Panel/Options"]
 
@@ -138,23 +156,6 @@ click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Pay Fine"
-flat = false
-
-[node name="Confiscate" type="Button" parent="Panel/Options"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 1
-margin/left = 262.0
-margin/top = 12.0
-margin/right = 379.0
-margin/bottom = 32.0
-toggle_mode = false
-click_on_press = true
-enabled_focus_mode = 2
-shortcut = null
-text = "Confiscate"
 flat = false
 
 

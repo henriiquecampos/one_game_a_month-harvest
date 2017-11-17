@@ -2,36 +2,43 @@
 
 [sub_resource type="GDScript" id=1]
 
-resource/name = "strike"
+resource/name = "layoff"
 script/source = "extends Control
 
 onready var description = get_node(\"Panel/Description/Text\")
 onready var options = get_node(\"Panel/Options\")
-var raise
 var production = 0
 var total = 0
-
+var amount = 1
+var raise = 0.05
 func _ready():
 	for o in options.get_children():
 		o.connect(\"released\", self, \"_option_chosen\", [o.get_index()])
-		
-	raise = rand_range(0.0,0.25)
-	for w in get_tree().get_nodes_in_group(\"worker\"):
-		production += w.production
-		total += w.monthly_cost * raise
-	total += player.monthly_expenses
-	var d = description.get_text().format({\"raise\":floor(raise * 100), \"amount\":int(production), \"total\":int(total)})
-	description.set_text(d)
 	
+	amount = 1 + randi()%get_tree().get_nodes_in_group(\"worker\").size()
+	if amount > get_tree().get_nodes_in_group(\"worker\").size() -1:
+		amount -= 1
+	raise = rand_range(0.05, 0.15)
+	total = player.monthly_expenses
+	total += total * raise
+	for w in range(0, amount):
+		var u = get_tree().get_nodes_in_group(\"worker\")[w]
+		production += u.production
+		
+	var d = description.get_text().format({\"amount\":amount, \"total\":total, \"raise\":int(raise * 100), \"production\":production})
+	description.set_text(d)
+
 func _option_chosen(option):
 	if option == 0:
-		player.set_production(player.production - production)
-		print(\"still stroke\")
+		for w in range(0, amount):
+			var u = get_tree().get_nodes_in_group(\"worker\")[0]
+			player.set_unities(u, player.REMOVE)
 	else:
 		player.set_monthly_expenses(total)
+	get_parent().populate_unities()
 	queue_free()"
 
-[node name="Strike" type="ColorFrame"]
+[node name="Layoff" type="ColorFrame"]
 
 visibility/visible = false
 focus/ignore_mouse = false
@@ -42,7 +49,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 1024.0
 margin/bottom = 600.0
-color = Color( 0.140625, 0.140625, 0.140625, 0.705882 )
+color = Color( 0.160156, 0.160156, 0.160156, 0.705882 )
 script/script = SubResource( 1 )
 
 [node name="Panel" type="Panel" parent="."]
@@ -71,7 +78,7 @@ scroll/vertical = true
 
 [node name="Text" type="Label" parent="Panel/Description"]
 
-rect/min_size = Vector2( 0, 100 )
+rect/min_size = Vector2( 0, 175 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
@@ -79,12 +86,12 @@ size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 354.0
-margin/bottom = 131.0
-text = "Your workers started a strike in order to increase their wage. They want to negociate a raise of {raise}%:
+margin/bottom = 175.0
+text = "Due to the government subsidies for other industry segments your workers are inclined to leave your company to work with these subsidized segments. You can:
 
-Deny raise for a loss of ${amount},00 in production
+Let these {amount} workers fire up themselves, for a loss of ${production},00 in production.
 
-Agree with the raise for a total of ${total},00 in monthly expenses"
+Try to keep them by increasing their wage in {raise}% for a total of ${total},00 in monthly expenses."
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -103,7 +110,7 @@ margin/bottom = 195.0
 custom_constants/separation = 15
 alignment = 0
 
-[node name="Deny" type="Button" parent="Panel/Options"]
+[node name="LetGo" type="Button" parent="Panel/Options"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -117,10 +124,10 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-text = "Deny"
+text = "Let them go"
 flat = false
 
-[node name="Agree" type="Button" parent="Panel/Options"]
+[node name="Raise" type="Button" parent="Panel/Options"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -134,7 +141,7 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-text = "Agree"
+text = "Raise their wage"
 flat = false
 
 

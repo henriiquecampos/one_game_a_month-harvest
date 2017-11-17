@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/harvest/harvest_screen.gd" type="Script" id=2]
+[ext_resource path="res://levels/harvest/harvest.tscn" type="PackedScene" id=3]
+
+[node name="HarvestScreen" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+
+[node name="Harvest" parent="." instance=ExtResource( 3 )]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 380.0
+margin/top = 106.0
+margin/right = 685.0
+margin/bottom = 122.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = false
+percent/visible = false
+
+[node name="Title" type="Label" parent="ProgressBar"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 77.0
+margin/top = -22.0
+margin/right = 246.0
+margin/bottom = -8.0
+text = "Harvesting for: {time}/30"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="ProgressBar"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 305.0
+margin/bottom = 16.0
+text = "{current}/{total}"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

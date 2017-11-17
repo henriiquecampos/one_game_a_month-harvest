@@ -11,7 +11,7 @@ focus/ignore_mouse = true
 script/script = ExtResource( 2 )
 min_wage = "The government of your state passed a new minimum wage.
 
-Every worker that doesn't produce above $ %s,00 is out of the market."
+Every worker that doesn't produce above $ %s,00 is out of the market, except gatherers."
 machine_regulation = "A new regulation in agricultural machines has passed in the congress.
 
 All machines prices raised by: {tax}%"
@@ -106,9 +106,9 @@ custom_constants/separation = 15
 alignment = 0
 
 [node name="Thumbnail" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"worker",
-"buying",
 "gatherer",
+"buying",
+"worker",
 ] instance=ExtResource( 3 )]
 
 margin/right = 162.0
@@ -124,9 +124,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail1" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
 "worker",
 "specialist",
-"buying",
 ] instance=ExtResource( 3 )]
 
 margin/top = 79.0
@@ -143,9 +143,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail2" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"worker",
 "mechanic",
 "buying",
+"worker",
 ] instance=ExtResource( 3 )]
 
 margin/top = 158.0
@@ -162,9 +162,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail3" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"worker",
-"engineer",
 "buying",
+"engineer",
+"worker",
 ] instance=ExtResource( 3 )]
 
 margin/top = 237.0
@@ -181,9 +181,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail4" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
+"buying",
 "worker",
 "plumber",
-"buying",
 ] instance=ExtResource( 3 )]
 
 margin/top = 316.0
@@ -201,8 +201,8 @@ Type: {type}"
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
 "tillage",
-"buying",
 "machines",
+"buying",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -220,9 +220,9 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"truck",
-"buying",
 "machines",
+"buying",
+"truck",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -240,8 +240,8 @@ Type: {type}"
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
 "harvester",
-"buying",
 "machines",
+"buying",
 ] instance=ExtResource( 3 )]
 
 editor/display_folded = true
