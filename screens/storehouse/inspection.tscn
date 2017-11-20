@@ -14,8 +14,8 @@ func _ready():
 		o.connect(\"released\", self, \"_option_chosen\", [o.get_index()])
 	bribe = 1000 + randi()%1000
 	fine = 1800 + randi()%4000
-	var machines = get_tree().get_nodes_in_group(\"machine\")
-	machine = machines[randi()%machines.size() -1]
+	var machines = get_tree().get_nodes_in_group(\"machines\")
+	machine = machines[randi()%machines.size()]
 	var d = description.get_text().format({\"machine\":machine.name, \"amount\":bribe, \"fine\":fine})
 	description.set_text(d)
 	

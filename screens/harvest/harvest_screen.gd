@@ -11,6 +11,10 @@ var days = 0
 var already_harvested = false
 var current = 0
 func _ready():
+	if get_tree().get_nodes_in_group("harvester").size() > 0:
+		get_node("Harvest/Harvester").show()
+	if get_tree().get_nodes_in_group("gatherer").size() > 0:
+		get_node("Harvest/Gatherer").show()
 	time_node.set_text(time_text.format({"time":days}))
 	_on_tiles_changed(get_node("Harvest/Field/Tiles"))
 

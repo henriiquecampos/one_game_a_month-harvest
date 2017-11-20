@@ -7,6 +7,7 @@
 [node name="Harvester" type="Sprite" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( 114.307, 340.79 )
 transform/scale = Vector2( 3.54149, 1.90996 )
 texture = ExtResource( 1 )
@@ -31,6 +32,7 @@ max_lines_visible = -1
 [node name="Gatherer" type="Sprite" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( 44.8517, 482.821 )
 texture = ExtResource( 1 )
 modulate = Color( 0.307755, 0.847987, 0.972656, 1 )
