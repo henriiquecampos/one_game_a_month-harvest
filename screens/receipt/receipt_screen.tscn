@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/receipt/receipt_screen.gd" type="Script" id=2]
+
+[node name="ReceiptScreen" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+next_scene = "res://screens/market/market_screen.tscn"
+
+[node name="Receipt" type="ScrollContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 289.0
+margin/top = 0.0
+margin/right = 735.0
+margin/bottom = 600.0
+scroll/horizontal = true
+scroll/vertical = true
+
+[node name="List" type="VBoxContainer" parent="Receipt"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 446.0
+margin/bottom = 600.0
+alignment = 0
+
+[node name="Label" type="Label" parent="Receipt/List"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 446.0
+margin/bottom = 14.0
+text = "Your Receipt"
+align = 3
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 881.0
+margin/top = 551.0
+margin/right = 1005.0
+margin/bottom = 571.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Start Next Season"
+flat = false
+
+[connection signal="released" from="Button" to="." method="change_scene"]
+
+

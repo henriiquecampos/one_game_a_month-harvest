@@ -164,7 +164,7 @@ Type: {type}"
 [node name="Thumbnail3" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
 "worker",
 "buying",
-"engineer",
+"plumber",
 ] instance=ExtResource( 3 )]
 
 margin/top = 237.0
@@ -174,7 +174,7 @@ price = 0.0
 monthly_cost = 1200.0
 production = 1500.0
 type = 0
-name = "Botanic Engineer"
+name = "Plumber"
 description = "{name}
 Wage: ${wage}
 Production: ${production}
@@ -183,14 +183,14 @@ Type: {type}"
 [node name="Thumbnail4" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
 "worker",
 "buying",
-"plumber",
+"engineer",
 ] instance=ExtResource( 3 )]
 
 margin/top = 316.0
 margin/right = 162.0
 margin/bottom = 380.0
 price = 0.0
-monthly_cost = 1200.0
+monthly_cost = 900.0
 production = 1500.0
 type = 0
 name = "Botanic Engineer"
@@ -200,8 +200,8 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
+"buying",
 "tillage",
 ] instance=ExtResource( 3 )]
 
@@ -220,8 +220,8 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
+"buying",
 "truck",
 ] instance=ExtResource( 3 )]
 
@@ -239,8 +239,8 @@ Production: ${production}
 Type: {type}"
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
+"buying",
 "harvester",
 ] instance=ExtResource( 3 )]
 

@@ -34,7 +34,7 @@ func _process(delta):
 [node name="HarvestScreen" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
-next_scene = "res://screens/market/market_screen.tscn"
+next_scene = "res://screens/receipt/receipt_screen.tscn"
 
 [node name="Harvest" parent="." instance=ExtResource( 3 )]
 

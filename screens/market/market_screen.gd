@@ -31,12 +31,12 @@ func _execute_event(event):
 		else:
 			_execute_event(event +1)
 	elif event == EVENT_2:
-		var tax = government.taxes["Machinery"] * 100
+		var tax = government.machinery * 100
 		machine_regulation = machine_regulation.format({"tax":tax})
 		description.set_text(machine_regulation)
 		for m in get_node("Buying/PanelContainer/ScrollingContainer/List").get_children():
 			if m.type == 1:
-				m.price += m.price * government.taxes["Machinery"]
+				m.price += m.price * government.machinery
 	elif event == EVENT_3:
 		new_contract_law = new_contract_law.format({"amount":government.minimum_demand})
 		for c in get_node("ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer").get_children():

@@ -97,7 +97,9 @@ Monthly Expenses: ${expenses},00
 
 Contracts Total Demands: ${demand},00
 
-Potential Production: ${tiles},00"
+Field Production: ${tiles},00
+
+Potential Earnings: ${earning},00"
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
