@@ -12,23 +12,6 @@ margin/right = 1019.0
 margin/bottom = 598.0
 alignment = 0
 
-[node name="Title" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 304.0
-margin/bottom = 14.0
-text = "In your Farm"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 
 focus/ignore_mouse = false
@@ -36,11 +19,11 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 18.0
+margin/top = 0.0
 margin/right = 304.0
 margin/bottom = 498.0
 
-[node name="ScrollingContainer" type="ScrollContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -49,11 +32,26 @@ size_flags/vertical = 2
 margin/left = 7.0
 margin/top = 7.0
 margin/right = 297.0
-margin/bottom = 473.0
+margin/bottom = 491.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+
+[node name="ScrollingContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 15.0
+margin/top = 15.0
+margin/right = 275.0
+margin/bottom = 469.0
 scroll/horizontal = false
 scroll/vertical = true
 
-[node name="List" type="VBoxContainer" parent="PanelContainer/ScrollingContainer"]
+[node name="List" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollingContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false

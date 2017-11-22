@@ -10,7 +10,7 @@ var total_tiles = 0
 var earned = 0
 onready var info_node = get_node("Info/Panel/MarginContainer/Text")
 onready var info_text = get_node("Info/Panel/MarginContainer/Text").get_text()
-onready var company = get_node("Company/Unities/PanelContainer/ScrollingContainer/List")
+onready var company = get_node("Company/Unities/PanelContainer/MarginContainer/ScrollingContainer/List")
 enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE, SET}
 
 func set_unities(unit, type):

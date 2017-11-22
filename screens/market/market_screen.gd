@@ -13,7 +13,12 @@ func _ready():
 	for s in get_tree().get_nodes_in_group("selling"):
 		s.get_node("Button").connect("released", self, "sell_unit", [s])
 	yield(get_node("Tween"), "tween_complete")
+	player.get_node("Company/Unities").set_theme(get_theme())
+	for i in player.get_node("Info").get_children():
+		i.set_theme(get_theme())
 	player.get_node("Company/Unities").show()
+	var fore = load("res://screens/market/foreground.tscn").instance()
+	add_child(fore)
 
 func _execute_event(event):
 	._execute_event(event)
@@ -34,7 +39,7 @@ func _execute_event(event):
 		var tax = government.machinery * 100
 		machine_regulation = machine_regulation.format({"tax":tax})
 		description.set_text(machine_regulation)
-		for m in get_node("Buying/PanelContainer/ScrollingContainer/List").get_children():
+		for m in get_node("Buying/PanelContainer/MarginContainer/ScrollingContainer/List").get_children():
 			if m.type == 1:
 				m.price += m.price * government.machinery
 	elif event == EVENT_3:

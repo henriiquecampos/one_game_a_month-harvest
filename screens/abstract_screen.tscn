@@ -8,8 +8,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -1024.0
 margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 600.0
+margin/right = -1024.0
+margin/bottom = 0.0
 
 [node name="Tween" type="Tween" parent="."]
 
