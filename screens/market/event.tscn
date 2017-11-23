@@ -46,10 +46,10 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 443.0
 margin/bottom = 189.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
 
 [node name="Description" type="Label" parent="CenterContainer/Panel/MarginContainer"]
 
@@ -57,11 +57,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
-margin/left = 10.0
-margin/top = 10.0
-margin/right = 433.0
-margin/bottom = 189.0
-align = 3
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 423.0
+margin/bottom = 169.0
+valign = 1
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0

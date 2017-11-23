@@ -17,7 +17,7 @@ func _ready():
 func update_description():
 	var d = description
 	if type == 0:
-		d = description.format({"name":name, "wage":monthly_cost, "production":production, "type":"Worker"})
+		d = description.format({"name":name, "wage":int(monthly_cost), "production":int(production), "type":"Worker"})
 	elif type == 1:
-		d = description.format({"name":name, "price":price, "monthly":monthly_cost, "production":production, "type":"Machine"})
+		d = description.format({"name":name, "price":int(price), "monthly":int(monthly_cost), "production":int(production), "type":"Machine"})
 	get_node("Description").set_text(d)
