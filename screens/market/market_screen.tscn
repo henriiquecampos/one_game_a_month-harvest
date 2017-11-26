@@ -124,9 +124,9 @@ custom_constants/separation = 15
 alignment = 0
 
 [node name="Thumbnail" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"worker",
-"gatherer",
 "buying",
+"gatherer",
+"worker",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -151,9 +151,9 @@ textures/normal = ExtResource( 6 )
 margin/right = 179.0
 
 [node name="Thumbnail1" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"worker",
 "buying",
 "specialist",
+"worker",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -179,9 +179,9 @@ textures/normal = ExtResource( 7 )
 margin/right = 179.0
 
 [node name="Thumbnail4" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"engineer",
-"worker",
 "buying",
+"worker",
+"engineer",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -207,9 +207,9 @@ textures/normal = ExtResource( 8 )
 margin/right = 179.0
 
 [node name="Thumbnail2" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"worker",
 "buying",
 "mechanic",
+"worker",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -239,8 +239,8 @@ margin/right = 179.0
 margin/bottom = 62.0
 
 [node name="Thumbnail3" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"worker",
 "buying",
+"worker",
 "plumber",
 ] instance=ExtResource( 5 )]
 
@@ -267,8 +267,8 @@ textures/normal = ExtResource( 10 )
 margin/right = 179.0
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"machines",
 "buying",
+"machines",
 "tillage",
 ] instance=ExtResource( 5 )]
 
@@ -295,9 +295,9 @@ textures/normal = ExtResource( 11 )
 margin/right = 179.0
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"truck",
-"machines",
 "buying",
+"machines",
+"truck",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -322,9 +322,9 @@ textures/normal = ExtResource( 12 )
 margin/right = 179.0
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"harvester",
-"machines",
 "buying",
+"machines",
+"harvester",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true

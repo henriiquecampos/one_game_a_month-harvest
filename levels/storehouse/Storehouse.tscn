@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://levels/storehouse/inspector.png" type="Texture" id=1]
+[ext_resource path="res://levels/storehouse/strike.png" type="Texture" id=2]
+[ext_resource path="res://levels/storehouse/layoff.png" type="Texture" id=3]
+[ext_resource path="res://levels/storehouse/storehouse.png" type="Texture" id=4]
+[ext_resource path="res://levels/storehouse/machines.png" type="Texture" id=5]
+[ext_resource path="res://levels/storehouse/workers.png" type="Texture" id=6]
 
 [node name="Storehouse" type="YSort"]
 
@@ -13,16 +18,29 @@ transform/pos = Vector2( 177.866, 346.688 )
 [node name="Inspection" type="Sprite" parent="Event"]
 
 visibility/visible = false
+transform/scale = Vector2( 0.689087, 0.689087 )
 texture = ExtResource( 1 )
-modulate = Color( 1, 0, 0.210938, 1 )
+
+[node name="Strike" type="Sprite" parent="Event"]
+
+visibility/visible = false
+transform/pos = Vector2( 0, 25 )
+transform/scale = Vector2( 0.359772, 0.359772 )
+texture = ExtResource( 2 )
+
+[node name="Layoff" type="Sprite" parent="Event"]
+
+visibility/visible = false
+transform/pos = Vector2( 0, 31.0001 )
+transform/scale = Vector2( 0.328522, 0.328522 )
+texture = ExtResource( 3 )
 
 [node name="Warehouse" type="Sprite" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 563.523, 238.639 )
-transform/scale = Vector2( 6.59847, 3.55862 )
-texture = ExtResource( 1 )
-modulate = Color( 0.292969, 0.209427, 0.209427, 1 )
+visibility/visible = false
+transform/pos = Vector2( 514.77, 238.639 )
+texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Warehouse"]
 
@@ -43,10 +61,11 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 121.764, 438.184 )
-transform/scale = Vector2( 3.54149, 1.90996 )
-texture = ExtResource( 1 )
-modulate = Color( 0.479732, 0.441269, 0.933594, 1 )
+transform/pos = Vector2( 133.187, 542.689 )
+texture = ExtResource( 5 )
+offset = Vector2( 34.0065, -32.4832 )
+region = true
+region_rect = Rect2( 9, 346, 336, 145 )
 
 [node name="Label" type="Label" parent="Truck"]
 
@@ -68,10 +87,10 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 742.896, 317.021 )
-transform/scale = Vector2( 3.54149, 1.90996 )
-texture = ExtResource( 1 )
-modulate = Color( 0.768203, 0.441269, 0.933594, 1 )
+transform/pos = Vector2( 838.187, 516.467 )
+texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 136, 174, 369, 163 )
 
 [node name="Label" type="Label" parent="Tillage"]
 
@@ -93,10 +112,10 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 838.026, 529.882 )
-transform/scale = Vector2( 3.54149, 1.90996 )
-texture = ExtResource( 1 )
-modulate = Color( 0.933594, 0.441269, 0.625891, 1 )
+transform/pos = Vector2( 881.239, 344.84 )
+texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 13, 0, 270, 176 )
 
 [node name="Label" type="Label" parent="Harvester"]
 
@@ -118,9 +137,13 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 858.131, 191.912 )
-texture = ExtResource( 1 )
-modulate = Color( 0.441269, 0.933594, 0.645122, 1 )
+transform/pos = Vector2( 946.362, 349.937 )
+transform/scale = Vector2( 0.35, 0.35 )
+z/z = -1
+texture = ExtResource( 6 )
+offset = Vector2( -0.818726, -107.01 )
+region = true
+region_rect = Rect2( 0, 0, 131, 221 )
 
 [node name="Label" type="Label" parent="SoilSpecialist"]
 
@@ -142,9 +165,12 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 908.18, 220.908 )
-texture = ExtResource( 1 )
-modulate = Color( 0.883592, 0.933594, 0.441269, 1 )
+transform/pos = Vector2( 760.015, 524.678 )
+transform/scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 6 )
+offset = Vector2( -2.84735, -113.471 )
+region = true
+region_rect = Rect2( 5, 249, 124, 241 )
 
 [node name="Label" type="Label" parent="BotanicEngineer"]
 
@@ -166,9 +192,12 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 830.749, 369.041 )
-texture = ExtResource( 1 )
-modulate = Color( 0.976563, 0.409365, 0.278473, 1 )
+transform/pos = Vector2( 851.012, 418.774 )
+transform/scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 6 )
+offset = Vector2( 0.608154, -116.031 )
+region = true
+region_rect = Rect2( 381, 259, 126, 246 )
 
 [node name="Label" type="Label" parent="Mechanic"]
 
@@ -190,9 +219,12 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 528.567, 329.945 )
-texture = ExtResource( 1 )
-modulate = Color( 0.992188, 0.151154, 0.269424, 1 )
+transform/pos = Vector2( 631.885, 404.667 )
+transform/scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 6 )
+offset = Vector2( -0.188354, -115.237 )
+region = true
+region_rect = Rect2( 381, 2, 120, 244 )
 
 [node name="Label" type="Label" parent="Plumber"]
 
@@ -214,9 +246,12 @@ max_lines_visible = -1
 
 editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 737.282, 564.443 )
-texture = ExtResource( 1 )
-modulate = Color( 0.307755, 0.847987, 0.972656, 1 )
+transform/pos = Vector2( 564.943, 511.766 )
+transform/scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 6 )
+offset = Vector2( -2, -116.751 )
+region = true
+region_rect = Rect2( 188, 142, 125, 238 )
 
 [node name="Label" type="Label" parent="Gatherer"]
 

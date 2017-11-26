@@ -30,6 +30,8 @@ func _option_chosen(option):
 	elif option == 2:
 		print(\"Pay Fines\")
 		player.set_money(fine, player.SELL)
+		
+	get_node(\"Storehouse/Event\").hide()
 	queue_free()
 	"
 

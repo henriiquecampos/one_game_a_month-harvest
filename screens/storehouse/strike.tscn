@@ -29,6 +29,7 @@ func _option_chosen(option):
 		print(\"still stroke\")
 	else:
 		player.set_monthly_expenses(total)
+	get_node(\"Storehouse/Event\").hide()
 	queue_free()"
 
 [node name="Strike" type="ColorFrame"]

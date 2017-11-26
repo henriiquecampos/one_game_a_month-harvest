@@ -12,16 +12,19 @@ func _execute_event(event):
 	if event == EVENT_1:
 		if get_tree().get_nodes_in_group("worker").size() >= 1:
 			s = load(layoff).instance()
+			get_node("Storehouse/Event/Layoff").show()
 		else:
 			return
 	elif event == EVENT_2:
 		if get_tree().get_nodes_in_group("machines").size() >= 1:
 			s = load(inspection).instance()
+			get_node("Storehouse/Event/Inspection").show()
 		else:
 			return
 	elif event == EVENT_3:
 		if get_tree().get_nodes_in_group("worker").size() >= 1:
 			s = load(strike).instance()
+			get_node("Storehouse/Event/Strike").show()
 		else:
 			return
 	add_child(s)

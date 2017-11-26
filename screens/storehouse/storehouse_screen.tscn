@@ -14,7 +14,6 @@ next_scene = "res://screens/harvest/harvest_screen.tscn"
 
 [node name="Storehouse" parent="." instance=ExtResource( 3 )]
 
-editor/display_folded = true
 z/z = -5
 
 [node name="Verify" type="Button" parent="."]
