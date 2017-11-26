@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="Harvest" type="Node2D"]
+
+[node name="Harvester" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 114.307, 340.79 )
+transform/scale = Vector2( 3.54149, 1.90996 )
+texture = ExtResource( 1 )
+modulate = Color( 0.933594, 0.441269, 0.625891, 1 )
+
+[node name="Label" type="Label" parent="Harvester"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -33.0
+margin/top = -32.0
+margin/right = 36.0
+margin/bottom = -18.0
+text = "Harvester"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Gatherer" type="Sprite" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 44.8517, 482.821 )
+texture = ExtResource( 1 )
+modulate = Color( 0.307755, 0.847987, 0.972656, 1 )
+
+[node name="Label" type="Label" parent="Gatherer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -44.0
+margin/top = -46.0
+margin/right = 44.0
+margin/bottom = -32.0
+text = "Gatherer"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

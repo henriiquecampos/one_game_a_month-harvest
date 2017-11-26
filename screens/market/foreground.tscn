@@ -1,0 +1,200 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://screens/market/market_braches.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "idle"
+length = 5.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("BottomRight:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -12.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomRight/Branch:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1.5, 3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 12.4572, -4.04551 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TopLeft:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 1.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -10.7718 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TopLeft/Branch:transform/rot")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 1.5, 2, 3.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 6.70283, 2.0, -3.73302 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "idle"
+length = 5.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TopRight:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 2.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 8.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TopRight/Branch:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1.5, 3.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -8.01114, 5.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BottomLeft:transform/rot")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 6.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BottomLeft/Branch:transform/rot")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 2, 3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -8.97665, 4.60121 ]
+}
+
+[node name="Foreground" type="CanvasLayer"]
+
+layer = 2
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="BottomRight" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1020.11, 596.364 )
+transform/rot = -0.00185394
+texture = ExtResource( 1 )
+offset = Vector2( -30.3757, -19.5331 )
+region = true
+region_rect = Rect2( 413.5, 428.341, 80.5, 61 )
+
+[node name="Branch" type="Sprite" parent="BottomRight"]
+
+transform/pos = Vector2( -64.8261, -38.2104 )
+transform/rot = -0.00109377
+texture = ExtResource( 1 )
+offset = Vector2( -63.3157, -16.8979 )
+region = true
+region_rect = Rect2( 323.5, 321.341, 177, 95 )
+
+[node name="TopRight" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1022.35, 6.16299 )
+transform/rot = 3.90385
+texture = ExtResource( 1 )
+offset = Vector2( -56.3255, 21.5963 )
+region = true
+region_rect = Rect2( 373.5, 12.5, 130, 71 )
+
+[node name="Branch" type="Sprite" parent="TopRight"]
+
+transform/pos = Vector2( -112.092, 46.0803 )
+transform/rot = -6.51547
+texture = ExtResource( 1 )
+offset = Vector2( -75.9063, 14.5547 )
+region = true
+region_rect = Rect2( 343.5, 96.267, 157, 90 )
+
+[node name="TopLeft" type="Sprite" parent="."]
+
+transform/pos = Vector2( 6.72412, 5.71342 )
+transform/rot = -0.00166419
+texture = ExtResource( 1 )
+offset = Vector2( 12.08, 23.3991 )
+region = true
+region_rect = Rect2( 11, 8.5, 68, 102 )
+
+[node name="Branch" type="Sprite" parent="TopLeft"]
+
+transform/pos = Vector2( 33.5619, 59.3758 )
+transform/rot = -0.00134571
+texture = ExtResource( 1 )
+offset = Vector2( 90.6419, -29.4419 )
+region = true
+region_rect = Rect2( 5, 106.5, 202.5, 79.5 )
+
+[node name="BottomLeft" type="Sprite" parent="."]
+
+transform/pos = Vector2( 6.98053, 589.876 )
+transform/rot = 3.65986
+texture = ExtResource( 1 )
+offset = Vector2( 56.2729, -23.1348 )
+region = true
+region_rect = Rect2( 3.5, 340, 155, 74.5 )
+
+[node name="Branch" type="Sprite" parent="BottomLeft"]
+
+transform/pos = Vector2( 126.799, -39.8348 )
+transform/rot = -5.47554
+texture = ExtResource( 1 )
+offset = Vector2( 64.5409, -0.842117 )
+region = true
+region_rect = Rect2( -1.5, 415.5, 173.5, 82 )
+
+[node name="AnimatorYellow" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="AnimatorPink" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+

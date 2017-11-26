@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://screens/market/abstract_thumbnail.gd" type="Script" id=1]
+[ext_resource path="res://screens/market/thumbnails/thumbnail.png" type="Texture" id=2]
+
+[node name="Thumbnail" type="HBoxContainer" groups=[
+"thumbnails",
+]]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+alignment = 0
+script/script = ExtResource( 1 )
+price = 100.0
+monthly_cost = 300.0
+production = 2000.0
+type = 1
+name = "Testing Machine"
+description = "{name}
+Price: ${price},00
+Monthly Costs: ${monthly},00
+Production: ${production},00
+Type: {type}"
+
+[node name="Button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 64.0
+margin/bottom = 64.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Description" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 68.0
+margin/top = 0.0
+margin/right = 162.0
+margin/bottom = 64.0
+custom_colors/font_color = Color( 0.203922, 0.176471, 0.290196, 1 )
+text = "Soil Specialist
+Type: Worker
+Price: 2.000/m"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
