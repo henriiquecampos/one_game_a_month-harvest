@@ -1,20 +1,53 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
-[ext_resource path="res://screens/storehouse/storehouse_screen.gd" type="Script" id=2]
-[ext_resource path="res://levels/storehouse/Storehouse.tscn" type="PackedScene" id=3]
+[ext_resource path="res://screens/storehouse/storehouse_theme.tres" type="Theme" id=2]
+[ext_resource path="res://screens/storehouse/storehouse_screen.gd" type="Script" id=3]
+[ext_resource path="res://screens/storehouse/sun.png" type="Texture" id=4]
+[ext_resource path="res://fonts/GaroaHackerClubeBold.otf" type="DynamicFontData" id=5]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "idle"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1, 2 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.678169, 0.678169 ), Vector2( 0.760845, 0.760845 ), Vector2( 0.678169, 0.678169 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 78
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 5 )
 
 [node name="StorehouseScreen" instance=ExtResource( 1 )]
 
-script/script = ExtResource( 2 )
+theme/theme = ExtResource( 2 )
+script/script = ExtResource( 3 )
 layoff = "res://screens/storehouse/layoff.tscn"
 inspection = "res://screens/storehouse/inspection.tscn"
 strike = "res://screens/storehouse/strike.tscn"
 next_scene = "res://screens/harvest/harvest_screen.tscn"
-
-[node name="Storehouse" parent="." instance=ExtResource( 3 )]
-
-z/z = -5
 
 [node name="Verify" type="Button" parent="."]
 
@@ -40,20 +73,74 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 441.0
-margin/top = 564.0
-margin/right = 577.0
-margin/bottom = 584.0
+margin/left = 424.0
+margin/top = 518.0
+margin/right = 594.0
+margin/bottom = 567.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-text = "Finish"
+text = "finish"
 flat = false
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+layer = -6
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="ColorFrame" type="ColorFrame" parent="Background"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.47451, 0.815686, 0.894118, 1 )
+
+[node name="Sun" type="Sprite" parent="Background"]
+
+transform/pos = Vector2( 518.509, 285.629 )
+transform/rot = 196.546
+transform/scale = Vector2( 0.708107, 0.708107 )
+z/z = 1
+texture = ExtResource( 4 )
+
+[node name="Animator" type="AnimationPlayer" parent="Background/Sun"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 1 )
+playback/active = true
+playback/speed = 0.2
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="Title" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 349.0
+margin/top = 115.0
+margin/right = 683.0
+margin/bottom = 194.0
+custom_fonts/font = SubResource( 2 )
+text = "summer!!"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="released" from="Verify" to="." method="_on_verify_released"]
 
 [connection signal="released" from="Finish" to="." method="_on_finish_released"]
 
 
-[editable path="Storehouse"]

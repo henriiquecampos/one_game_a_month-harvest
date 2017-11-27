@@ -31,13 +31,11 @@ func _option_chosen(option):
 		print(\"Pay Fines\")
 		player.set_money(fine, player.SELL)
 		
-	get_node(\"Storehouse/Event\").hide()
 	queue_free()
 	"
 
 [node name="Inspection" type="ColorFrame"]
 
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -82,15 +80,16 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 354.0
+margin/right = 342.0
 margin/bottom = 190.0
-text = "Some concorrents asked the Government Agroculture Fiscalization Agency to send an agent to your farm. For some reason your {machine} isn't in accord to the regulations.
+text = "some concorrents asked the government agroculture fiscalization agency to send an agent to your farm. for some reason your {machine} isn't in accord to the regulations.
 
-Therefore you will have to either:
+therefore you will have to either:
 
-Let {machine} be confiscated
-Bribe the Inspector for ${amount},00
-Pay the fine of ${fine},00 "
+let {machine} be confiscated
+bribe the Inspector for ${amount},00
+pay the fine of ${fine},00 "
+valign = 1
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -103,9 +102,9 @@ focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 150.0
+margin/top = 157.0
 margin/right = 379.0
-margin/bottom = 195.0
+margin/bottom = 190.0
 custom_constants/separation = 15
 alignment = 0
 
@@ -114,50 +113,53 @@ alignment = 0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
-size_flags/vertical = 1
-margin/left = 262.0
-margin/top = 12.0
-margin/right = 379.0
-margin/bottom = 32.0
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 116.0
+margin/bottom = 33.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Confiscate"
 flat = false
+clip_text = true
 
 [node name="Bribe" type="Button" parent="Panel/Options"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
-size_flags/vertical = 1
-margin/left = 0.0
-margin/top = 12.0
-margin/right = 116.0
-margin/bottom = 32.0
+size_flags/vertical = 3
+margin/left = 131.0
+margin/top = 0.0
+margin/right = 247.0
+margin/bottom = 33.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Bribe"
 flat = false
+clip_text = true
 
 [node name="Fine" type="Button" parent="Panel/Options"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
-size_flags/vertical = 1
-margin/left = 131.0
-margin/top = 12.0
-margin/right = 247.0
-margin/bottom = 32.0
+size_flags/vertical = 3
+margin/left = 262.0
+margin/top = 0.0
+margin/right = 379.0
+margin/bottom = 33.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Pay Fine"
 flat = false
+clip_text = true
 
 

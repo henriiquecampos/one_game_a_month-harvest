@@ -6,58 +6,37 @@ export (String, FILE, "*.tscn") var strike
 export (String, FILE, "*.tscn") var next_scene
 func _ready():
 	populate_unities()
-	
+	player.get_node("Company/Unities").set_theme(get_theme())
+	for i in player.get_node("Info").get_children():
+		i.set_theme(get_theme())
+	player.get_node("Company/Unities").show()
+	yield(get_node("Tween"), "tween_complete")
+	var s = load("res://screens/storehouse/foreground.tscn").instance()
+	add_child(s)
+	get_node("Foreground/Star").set_pos(player.get_node("Company/Unities").get_pos())
+	get_node("Foreground/Floater").set_pos(get_node("Finish").get_end())
 func _execute_event(event):
 	var s = null
 	if event == EVENT_1:
 		if get_tree().get_nodes_in_group("worker").size() >= 1:
 			s = load(layoff).instance()
-			get_node("Storehouse/Event/Layoff").show()
 		else:
 			return
 	elif event == EVENT_2:
 		if get_tree().get_nodes_in_group("machines").size() >= 1:
 			s = load(inspection).instance()
-			get_node("Storehouse/Event/Inspection").show()
 		else:
 			return
 	elif event == EVENT_3:
 		if get_tree().get_nodes_in_group("worker").size() >= 1:
 			s = load(strike).instance()
-			get_node("Storehouse/Event/Strike").show()
 		else:
 			return
 	add_child(s)
-	get_node("Verify").show()
 	s.set_name("Event")
 	
 func populate_unities():
-	var company = player.company
-	for c in company.get_children():
-		if c.is_in_group("gatherer"):
-			get_node("Storehouse/Gatherer").show()
-			get_node("Storehouse/Gatherer/Label").set_text(str(get_tree().get_nodes_in_group("gatherer").size()))
-		elif c.is_in_group("mechanic"):
-			get_node("Storehouse/Mechanic").show()
-			get_node("Storehouse/Mechanic/Label").set_text(str(get_tree().get_nodes_in_group("mechanic").size()))
-		elif c.is_in_group("plumber"):
-			get_node("Storehouse/Plumber").show()
-			get_node("Storehouse/Plumber/Label").set_text(str(get_tree().get_nodes_in_group("plumber").size()))
-		elif c.is_in_group("specialist"):
-			get_node("Storehouse/SoilSpecialist").show()
-			get_node("Storehouse/SoilSpecialist/Label").set_text(str(get_tree().get_nodes_in_group("specialist").size()))
-		elif c.is_in_group("engineer"):
-			get_node("Storehouse/BotanicEngineer").show()
-			get_node("Storehouse/BotanicEngineer/Label").set_text(str(get_tree().get_nodes_in_group("engineer").size()))
-		elif c.is_in_group("tillage"):
-			get_node("Storehouse/Tillage").show()
-			get_node("Storehouse/Tillage/Label").set_text("Tillages: " + str(get_tree().get_nodes_in_group("tillage").size()))
-		elif c.is_in_group("truck"):
-			get_node("Storehouse/Truck").show()
-			get_node("Storehouse/Truck/Label").set_text(str(get_tree().get_nodes_in_group("truck").size()))
-		elif c.is_in_group("harvester"):
-			get_node("Storehouse/Harvester").show()
-			get_node("Storehouse/Harvester/Label").set_text(str(get_tree().get_nodes_in_group("harvester").size()))
+	pass
 
 func _on_finish_released():
 	if get_node("Event") != null:
@@ -71,5 +50,4 @@ func _on_finish_released():
 	get_tree().change_scene(next_scene)
 
 func _on_verify_released():
-	get_node("Verify").hide()
 	get_node("Event").show()

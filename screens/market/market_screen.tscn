@@ -51,7 +51,7 @@ margin/right = 1025.0
 margin/bottom = 164.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.670588, 0.729412, 1 )
-text = "market!!"
+text = "spring!!"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -60,6 +60,7 @@ max_lines_visible = -1
 
 [node name="Buying" type="VBoxContainer" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -125,8 +126,8 @@ alignment = 0
 
 [node name="Thumbnail" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
 "buying",
-"gatherer",
 "worker",
+"gatherer",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -151,8 +152,8 @@ textures/normal = ExtResource( 6 )
 margin/right = 179.0
 
 [node name="Thumbnail1" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "specialist",
+"buying",
 "worker",
 ] instance=ExtResource( 5 )]
 
@@ -179,9 +180,9 @@ textures/normal = ExtResource( 7 )
 margin/right = 179.0
 
 [node name="Thumbnail4" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"engineer",
 "buying",
 "worker",
-"engineer",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -208,8 +209,8 @@ margin/right = 179.0
 
 [node name="Thumbnail2" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
 "buying",
-"mechanic",
 "worker",
+"mechanic",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -239,9 +240,9 @@ margin/right = 179.0
 margin/bottom = 62.0
 
 [node name="Thumbnail3" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"plumber",
 "buying",
 "worker",
-"plumber",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -267,8 +268,8 @@ textures/normal = ExtResource( 10 )
 margin/right = 179.0
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
+"buying",
 "tillage",
 ] instance=ExtResource( 5 )]
 
@@ -295,9 +296,9 @@ textures/normal = ExtResource( 11 )
 margin/right = 179.0
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
-"machines",
 "truck",
+"machines",
+"buying",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -322,9 +323,9 @@ textures/normal = ExtResource( 12 )
 margin/right = 179.0
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
-"machines",
 "harvester",
+"machines",
+"buying",
 ] instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -670,7 +671,6 @@ flat = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = -5
 offset = Vector2( 0, 0 )
 rotation = 0.0
