@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/storehouse/storehouse_theme.tres" type="Theme" id=2]
 [ext_resource path="res://screens/storehouse/storehouse_screen.gd" type="Script" id=3]
 [ext_resource path="res://screens/storehouse/sun.png" type="Texture" id=4]
-[ext_resource path="res://fonts/GaroaHackerClubeBold.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://screens/storehouse/particle.png" type="Texture" id=5]
+[ext_resource path="res://screens/storehouse/particle_0.png" type="Texture" id=6]
+[ext_resource path="res://fonts/GaroaHackerClubeBold.otf" type="DynamicFontData" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -38,7 +40,7 @@ tracks/1/keys = {
 font/size = 78
 font/use_mipmaps = false
 font/use_filter = true
-font/font = ExtResource( 5 )
+font/font = ExtResource( 7 )
 
 [node name="StorehouseScreen" instance=ExtResource( 1 )]
 
@@ -105,7 +107,7 @@ color = Color( 0.47451, 0.815686, 0.894118, 1 )
 
 [node name="Sun" type="Sprite" parent="Background"]
 
-transform/pos = Vector2( 518.509, 285.629 )
+transform/pos = Vector2( 139.158, 285.629 )
 transform/rot = 196.546
 transform/scale = Vector2( 0.708107, 0.708107 )
 z/z = 1
@@ -121,6 +123,64 @@ playback/active = true
 playback/speed = 0.2
 blend_times = [  ]
 autoplay = "idle"
+
+[node name="Particles" type="Particles2D" parent="Background"]
+
+transform/pos = Vector2( 512, 0 )
+config/amount = 3
+config/lifetime = 14.0
+config/process_mode = 1
+config/half_extents = Vector2( 512, 0 )
+config/local_space = false
+config/texture = ExtResource( 5 )
+params/direction = 39.35
+params/spread = 10.0
+params/linear_velocity = 20.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 0.0
+params/anim_initial_pos = 0.0
+randomness/direction = -1.0
+randomness/linear_velocity = 0.32
+randomness/spin_velocity = 0.15
+
+[node name="Particles1" type="Particles2D" parent="Background"]
+
+transform/pos = Vector2( 512, 0 )
+config/amount = 4
+config/lifetime = 14.0
+config/process_mode = 1
+config/half_extents = Vector2( 512, 0 )
+config/local_space = false
+config/texture = ExtResource( 6 )
+params/direction = 39.35
+params/spread = 10.0
+params/linear_velocity = 20.0
+params/spin_velocity = 2.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 0.0
+params/anim_initial_pos = 0.0
+randomness/direction = -1.0
+randomness/linear_velocity = 0.32
+randomness/spin_velocity = 0.15
 
 [node name="Title" type="Label" parent="."]
 

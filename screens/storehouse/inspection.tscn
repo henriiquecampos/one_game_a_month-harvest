@@ -73,7 +73,7 @@ scroll/vertical = true
 
 [node name="Text" type="Label" parent="Panel/Description"]
 
-rect/min_size = Vector2( 0, 190 )
+rect/min_size = Vector2( 0, 220 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
@@ -81,7 +81,7 @@ size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 342.0
-margin/bottom = 190.0
+margin/bottom = 220.0
 text = "some concorrents asked the government agroculture fiscalization agency to send an agent to your farm. for some reason your {machine} isn't in accord to the regulations.
 
 therefore you will have to either:
