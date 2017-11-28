@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "decrease"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -73, -38 ) ]
+}
+
+[node name="Label" type="Label"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 96.0
+margin/bottom = 14.0
+custom_colors/font_color = Color( 0.74902, 0.298039, 0.270588, 1 )
+text = "- ${amount},00"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/decrease = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "decrease"
+
+[connection signal="finished" from="Animation" to="." method="queue_free"]
+
+

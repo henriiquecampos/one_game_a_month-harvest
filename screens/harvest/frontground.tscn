@@ -1,0 +1,224 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://screens/harvest/wheat_lower.png" type="Texture" id=1]
+[ext_resource path="res://screens/harvest/wheat_upper.png" type="Texture" id=2]
+[ext_resource path="res://screens/harvest/particles.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+export var final_rot = 0.0
+func _ready():
+	var t = get_node(\"Tween\")
+	t.interpolate_property(self, \"transform/rot\", get_rot(), final_rot, 1.5, t.TRANS_BACK, t.EASE_OUT)
+	t.start()
+	yield(t, \"tween_complete\")
+	get_node(\"Animator\").set_speed(rand_range(0.25, 0.5))
+	get_node(\"Animator\").play(\"idle\")
+"
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "idle"
+length = 4.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lower:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1.2, 2, 3.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0, -10.0 ]
+}
+
+[node name="Frontground" type="CanvasLayer"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="TopLeft" type="Node2D" parent="."]
+
+editor/display_folded = true
+script/script = SubResource( 1 )
+final_rot = -120.0
+
+[node name="Tween" type="Tween" parent="TopLeft"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Animator" type="AnimationPlayer" parent="TopLeft"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Lower" type="Sprite" parent="TopLeft"]
+
+transform/pos = Vector2( 0.765198, -1.54874 )
+transform/rot = 7.15007
+texture = ExtResource( 1 )
+offset = Vector2( 0.545152, -52.9759 )
+
+[node name="Upper" type="Sprite" parent="TopLeft/Lower"]
+
+transform/pos = Vector2( 0.545152, -176.471 )
+texture = ExtResource( 2 )
+
+[node name="BottomLeft" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 2.05054, 604.911 )
+transform/rot = 133.4
+script/script = SubResource( 1 )
+final_rot = 300.0
+
+[node name="Tween" type="Tween" parent="BottomLeft"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Animator" type="AnimationPlayer" parent="BottomLeft"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Lower" type="Sprite" parent="BottomLeft"]
+
+transform/pos = Vector2( 0.765198, -1.54874 )
+transform/rot = 7.15007
+texture = ExtResource( 1 )
+offset = Vector2( 0.545152, -52.9759 )
+
+[node name="Upper" type="Sprite" parent="BottomLeft/Lower"]
+
+transform/pos = Vector2( 0.545152, -176.471 )
+texture = ExtResource( 2 )
+
+[node name="TopRight" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 1020.25, 0 )
+transform/rot = -28.7
+script/script = SubResource( 1 )
+final_rot = 120.0
+
+[node name="Tween" type="Tween" parent="TopRight"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Animator" type="AnimationPlayer" parent="TopRight"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Lower" type="Sprite" parent="TopRight"]
+
+transform/pos = Vector2( 0.765198, -1.54874 )
+transform/rot = 7.15007
+texture = ExtResource( 1 )
+offset = Vector2( 0.545152, -52.9759 )
+
+[node name="Upper" type="Sprite" parent="TopRight/Lower"]
+
+transform/pos = Vector2( 0.545152, -176.471 )
+texture = ExtResource( 2 )
+
+[node name="BottomRight" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 1020.25, 604.911 )
+transform/rot = -162.9
+script/script = SubResource( 1 )
+final_rot = -324.0
+
+[node name="Tween" type="Tween" parent="BottomRight"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Animator" type="AnimationPlayer" parent="BottomRight"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/idle = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Lower" type="Sprite" parent="BottomRight"]
+
+transform/pos = Vector2( 0.765198, -1.54874 )
+transform/rot = 7.15007
+texture = ExtResource( 1 )
+offset = Vector2( 0.545152, -52.9759 )
+
+[node name="Upper" type="Sprite" parent="BottomRight/Lower"]
+
+transform/pos = Vector2( 0.545152, -176.471 )
+texture = ExtResource( 2 )
+
+[node name="Particles" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 512, -33.1615 )
+config/amount = 16
+config/lifetime = 14.0
+config/process_mode = 1
+config/half_extents = Vector2( 512, 0 )
+config/local_space = false
+config/texture = ExtResource( 3 )
+params/direction = 39.35
+params/spread = 10.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.58
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 0.0
+params/anim_initial_pos = 0.0
+randomness/direction = -1.0
+randomness/linear_velocity = 0.32
+randomness/spin_velocity = 0.15
+
+

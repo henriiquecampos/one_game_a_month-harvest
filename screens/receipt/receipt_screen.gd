@@ -33,4 +33,5 @@ func change_scene():
 	t.interpolate_property(self, "rect/pos", get_pos(), get_pos() - Vector2(1024,0), 0.5, t.TRANS_BACK, t.EASE_IN)
 	t.start()
 	yield(t, "tween_complete")
+	player.set_contracts(0)
 	get_tree().change_scene(next_scene)
