@@ -174,9 +174,23 @@ transform/rot = 2.08249
 transform/scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 5 )
 
+[node name="Prop2 2" type="Sprite" parent="Background"]
+
+transform/pos = Vector2( 930.599, 246.116 )
+transform/rot = 2.08249
+transform/scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 5 )
+
 [node name="Prop1" type="Sprite" parent="Background"]
 
 transform/pos = Vector2( 77.5891, 442.662 )
+transform/rot = -3.96393
+transform/scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 5 )
+
+[node name="Prop2" type="Sprite" parent="Background"]
+
+transform/pos = Vector2( 962.785, 265.623 )
 transform/rot = -3.96393
 transform/scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 5 )

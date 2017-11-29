@@ -1,6 +1,6 @@
 extends Node
 
-var taxes = {"Federal":0.12, "State":0.10, "Payroll":0.15, "Unenmployment":0.08, "Sales": 0.06, "ValueAdded": 0.04}
+var taxes = {"federal":0.12, "state":0.10, "payroll":0.15, "unenmployment":0.08, "sales": 0.06, "value added": 0.04}
 var machinery = 0.25
 export (int) var minimum_wage = 2000
 export (int) var minimum_demand = 4000

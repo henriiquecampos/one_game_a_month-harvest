@@ -2,29 +2,59 @@ extends "../abstract_screen.gd"
 export (String, FILE, "*.tscn") var next_scene
 onready var total = player.money
 var earn = player.contracts
+var foreground = preload("res://screens/receipt/foreground.tscn")
 func _ready():
+	yield(get_node("Tween"), "tween_complete")
+	for i in player.get_node("Info").get_children():
+		i.set_theme(get_theme())
+	var s = foreground.instance()
+	add_child(s)
 	for tax in government.taxes:
 		print(government.taxes[tax])
 		var d = get_node("Receipt/List/Label").duplicate()
+		d.set_align(0)
+		d.set("custom_colors/font_color", Color("fa4973"))
 		var text = "{tax} -{value}%"
 		d.set_text(text.format({"tax":tax, "value":int(government.taxes[tax] * 100)}))
+		d.set_percent_visible(0.0)
 		get_node("Receipt/List").add_child(d)
+		d.get_node("Animator").play("text")
+		yield(d.get_node("Animator"), "finished")
 		earn -= earn * government.taxes[tax]
 	total += earn
 	total -= player.monthly_expenses
 	var d = get_node("Receipt/List/Label").duplicate()
+	d.set_align(0)
 	var text = "Contracts Payment: ${demand},00"
+	d.set("custom_colors/font_color", Color("14a890"))
 	d.set_text(text.format({"demand":player.contracts}))
+	d.set_percent_visible(0.0)
 	get_node("Receipt/List").add_child(d)
+	d.get_node("Animator").play("text")
+	yield(d.get_node("Animator"), "finished")
 	d = get_node("Receipt/List/Label").duplicate()
+	d.set_align(0)
+	d.set("custom_colors/font_color", Color("fa4973"))
 	text = "Monthly Expenses: ${monthly},00"
 	d.set_text(text.format({"monthly":player.monthly_expenses}))
+	d.set_percent_visible(0.0)
 	get_node("Receipt/List").add_child(d)
+	d.get_node("Animator").play("text")
+	yield(d.get_node("Animator"), "finished")
 	d = get_node("Receipt/List/Label").duplicate()
+	d.set_align(0)
 	text = "Total After Deductions: ${total},00"
-	d.set_text(text.format({"total":total}))
+	if total <= 0:
+		#Lose Condition
+		d.set("custom_colors/font_color", Color("fa4973"))
+	else:
+		d.set("custom_colors/font_color", Color("14a890"))
+	d.set_text(text.format({"total":int(total)}))
+	d.set_percent_visible(0.0)
 	get_node("Receipt/List").add_child(d)
-	player.set_money(total)
+	d.get_node("Animator").play("text")
+	yield(d.get_node("Animator"), "finished")
+	player.set_money(int(total))
 
 func change_scene():
 	var t = get_node("Tween")

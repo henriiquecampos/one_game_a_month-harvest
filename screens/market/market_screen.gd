@@ -6,6 +6,7 @@ export (String, MULTILINE) var new_contract_law
 export (String, FILE, "*.tscn") var next_scene
 
 func _ready():
+	player.current_round += 1
 	for b in get_tree().get_nodes_in_group("buying"):
 		b.get_node("Button").connect("released", self, "buy_unit", [b])
 	for c in get_tree().get_nodes_in_group("contracts"):
