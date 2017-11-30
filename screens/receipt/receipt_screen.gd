@@ -52,9 +52,7 @@ func _ready():
 	d = get_node("Receipt/List/Label").duplicate()
 	d.set_align(0)
 	text = "Total After Deductions: ${total},00"
-	total = -500
 	if total <= 0:
-		#Lose Condition
 		d.set("custom_colors/font_color", Color("fa4973"))
 	else:
 		d.set("custom_colors/font_color", Color("14a890"))
@@ -69,6 +67,10 @@ func _ready():
 		var g = load("res://objects/gameover.tscn").instance()
 		add_child(g)
 	else:
+		if player.current_round >= 5:
+			#Win Condition
+#			next_scene = 
+			pass
 		get_node("Button").show()
 func change_scene():
 	var t = get_node("Tween")

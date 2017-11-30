@@ -77,15 +77,15 @@ scroll/vertical = true
 
 [node name="Text" type="Label" parent="Panel/Description"]
 
-rect/min_size = Vector2( 0, 175 )
+rect/min_size = Vector2( 0, 200 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = -1.0
+margin/top = 0.0
 margin/right = 342.0
-margin/bottom = 174.0
+margin/bottom = 200.0
 text = "due to the government subsidies for other industry segments your workers are inclined to leave your company to work with these subsidized segments. You can:
 
 let these {amount} workers fire up themselves, for a loss of ${production},00 in production.

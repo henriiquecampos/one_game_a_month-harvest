@@ -15,7 +15,6 @@ onready var company = get_node("Company/Unities/PanelContainer/MarginContainer/S
 enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE, SET}
 
 func reset():
-	already_played = false
 	current_round = 0
 	money = 1500
 	production = 0
