@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/storehouse/storehouse_theme.tres" type="Theme" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://screens/storehouse/sun.png" type="Texture" id=4]
 [ext_resource path="res://screens/storehouse/particle.png" type="Texture" id=5]
 [ext_resource path="res://screens/storehouse/particle_0.png" type="Texture" id=6]
-[ext_resource path="res://fonts/GaroaHackerClubeBold.otf" type="DynamicFontData" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -34,13 +33,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 0.678169, 0.678169 ), Vector2( 0.760845, 0.760845 ), Vector2( 0.678169, 0.678169 ) ]
 }
-
-[sub_resource type="DynamicFont" id=2]
-
-font/size = 78
-font/use_mipmaps = false
-font/use_filter = true
-font/font = ExtResource( 7 )
 
 [node name="StorehouseScreen" instance=ExtResource( 1 )]
 
@@ -182,25 +174,93 @@ randomness/direction = -1.0
 randomness/linear_velocity = 0.32
 randomness/spin_velocity = 0.15
 
-[node name="Title" type="Label" parent="."]
+[node name="Help" type="CanvasLayer" parent="."]
+
+layer = 8
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Control" type="Control" parent="Help"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="ColorFrame" type="ColorFrame" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.199219, 0.199219, 0.199219, 0.726745 )
+
+[node name="Panel" type="Panel" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 306.0
+margin/top = 68.0
+margin/right = 711.0
+margin/bottom = 534.0
+
+[node name="Label" type="Label" parent="Help/Control"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 349.0
-margin/top = 115.0
-margin/right = 683.0
-margin/bottom = 194.0
-custom_fonts/font = SubResource( 2 )
-text = "summer!!"
+margin/left = 346.0
+margin/top = 95.0
+margin/right = 672.0
+margin/bottom = 336.0
+text = "here we are within your company.
+
+this screen shows what is happening currently in your company so you can take the correct decisions.
+
+from strikes to inspections, you will have to deal with the management of your farm.
+
+be aware that decisions are persistent and have further implications."
 valign = 1
+autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Button" type="Button" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 588.0
+margin/top = 483.0
+margin/right = 692.0
+margin/bottom = 521.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "got it"
+flat = false
+
 [connection signal="released" from="Verify" to="." method="_on_verify_released"]
 
 [connection signal="released" from="Finish" to="." method="_on_finish_released"]
+
+[connection signal="released" from="Help/Control/Button" to="Help" method="queue_free"]
 
 

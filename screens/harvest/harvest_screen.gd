@@ -17,6 +17,11 @@ func _ready():
 	time_node.set_text(time_text.format({"time":days}))
 	_on_tiles_changed(get_node("Harvest/Field/Tiles"))
 	yield(get_node("Tween"), "tween_complete")
+	if !player.already_played:
+		get_node("Help/Control").show()
+	else:
+		get_node("Help").queue_free()
+	yield(get_node("Help"), "exit_tree")
 	var s = load("res://screens/harvest/frontground.tscn").instance()
 	add_child(s)
 	player.set_theme(get_theme())
@@ -37,7 +42,7 @@ func set_current_tiles(value):
 
 func _process(delta):
 	if current <= total:
-		current += floor((player.production * delta)/30)
+		current += ceil((player.production * delta)/30)
 		var d = description.format({"total":player.total_tiles, "current":int(current)})
 		description_node.set_text(d)
 		time += delta
@@ -47,7 +52,6 @@ func _process(delta):
 		progress.set_value(current)
 		
 		set_current_tiles(int((current/total) * 6))
-		print(current_tile)
 
 func _on_harvest_toggled( pressed ):
 	set_process(pressed)
@@ -63,6 +67,8 @@ func _on_harvest_toggled( pressed ):
 	if pressed:
 		get_node("Button").set_text("Stop")
 	else:
+		player.tile_price += player.contracts - current
+		player.produced = current
 		get_node("Button").set_text("Deliver")
 		already_harvested = true
 		

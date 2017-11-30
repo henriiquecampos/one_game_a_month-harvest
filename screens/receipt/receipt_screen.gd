@@ -1,16 +1,22 @@
 extends "../abstract_screen.gd"
 export (String, FILE, "*.tscn") var next_scene
 onready var total = player.money
-var earn = player.contracts
+var earn = 0
 var foreground = preload("res://screens/receipt/foreground.tscn")
 func _ready():
-	yield(get_node("Tween"), "tween_complete")
 	for i in player.get_node("Info").get_children():
 		i.set_theme(get_theme())
+	player.contracts = min(player.produced, player.contracts)
+	earn = player.contracts
+	yield(get_node("Tween"), "tween_complete")
+	if !player.already_played:
+		get_node("Help/Control").show()
+	else:
+		get_node("Help").queue_free()
+	yield(get_node("Help"), "exit_tree")
 	var s = foreground.instance()
 	add_child(s)
 	for tax in government.taxes:
-		print(government.taxes[tax])
 		var d = get_node("Receipt/List/Label").duplicate()
 		d.set_align(0)
 		d.set("custom_colors/font_color", Color("fa4973"))
@@ -21,6 +27,7 @@ func _ready():
 		d.get_node("Animator").play("text")
 		yield(d.get_node("Animator"), "finished")
 		earn -= earn * government.taxes[tax]
+	print(earn)
 	total += earn
 	total -= player.monthly_expenses
 	var d = get_node("Receipt/List/Label").duplicate()
@@ -32,11 +39,12 @@ func _ready():
 	get_node("Receipt/List").add_child(d)
 	d.get_node("Animator").play("text")
 	yield(d.get_node("Animator"), "finished")
+	
 	d = get_node("Receipt/List/Label").duplicate()
 	d.set_align(0)
 	d.set("custom_colors/font_color", Color("fa4973"))
 	text = "Monthly Expenses: ${monthly},00"
-	d.set_text(text.format({"monthly":player.monthly_expenses}))
+	d.set_text(text.format({"monthly":int(player.monthly_expenses)}))
 	d.set_percent_visible(0.0)
 	get_node("Receipt/List").add_child(d)
 	d.get_node("Animator").play("text")
@@ -44,6 +52,7 @@ func _ready():
 	d = get_node("Receipt/List/Label").duplicate()
 	d.set_align(0)
 	text = "Total After Deductions: ${total},00"
+	total = -500
 	if total <= 0:
 		#Lose Condition
 		d.set("custom_colors/font_color", Color("fa4973"))
@@ -55,7 +64,12 @@ func _ready():
 	d.get_node("Animator").play("text")
 	yield(d.get_node("Animator"), "finished")
 	player.set_money(int(total))
-
+	player.already_played = true
+	if total <= 0:
+		var g = load("res://objects/gameover.tscn").instance()
+		add_child(g)
+	else:
+		get_node("Button").show()
 func change_scene():
 	var t = get_node("Tween")
 	player.get_node("Company/Unities").hide()

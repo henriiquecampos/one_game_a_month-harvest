@@ -6,11 +6,16 @@ export (String, FILE, "*.tscn") var strike
 export (String, FILE, "*.tscn") var next_scene
 func _ready():
 	populate_unities()
+	yield(get_node("Tween"), "tween_complete")
+	if !player.already_played:
+		get_node("Help/Control").show()
+	else:
+		get_node("Help").queue_free()
+	yield(get_node("Help"), "exit_tree")
 	player.get_node("Company/Unities").set_theme(get_theme())
 	for i in player.get_node("Info").get_children():
 		i.set_theme(get_theme())
 	player.get_node("Company/Unities").show()
-	yield(get_node("Tween"), "tween_complete")
 	var s = load("res://screens/storehouse/foreground.tscn").instance()
 	add_child(s)
 	get_node("Foreground/Star").set_pos(player.get_node("Company/Unities").get_pos())

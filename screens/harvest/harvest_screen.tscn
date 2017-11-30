@@ -23,7 +23,7 @@ func _process(delta):
 	var cell = world_to_map(get_local_mouse_pos())
 	if cell.x <= 10 and cell.x >= 0 and cell.y <= 6 and cell.y >= 0:
 		if Input.is_mouse_button_pressed(1):
-			if (get_cell(cell.x, cell.y)) == 0:
+			if (get_cell(cell.x, cell.y)) == 0 and (player.money - (player.tile_price/2)) >= 0:
 				set_cell(cell.x, cell.y, 1)
 				player.set_money(player.tile_price/2, player.BUY)
 				player.total_tiles = get_used_cells_by_id(1).size() * player.tile_price
@@ -195,10 +195,100 @@ transform/rot = -3.96393
 transform/scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 5 )
 
+[node name="Help" type="CanvasLayer" parent="."]
+
+layer = 8
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Control" type="Control" parent="Help"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="ColorFrame" type="ColorFrame" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.199219, 0.199219, 0.199219, 0.726745 )
+
+[node name="Panel" type="Panel" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 306.0
+margin/top = 68.0
+margin/right = 711.0
+margin/bottom = 534.0
+
+[node name="Label" type="Label" parent="Help/Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 346.0
+margin/top = 95.0
+margin/right = 672.0
+margin/bottom = 425.0
+custom_colors/font_color = Color( 0.996078, 0.819608, 0.486275, 1 )
+text = "welcome to your farming field!!
+
+now is time to accomplish your contract demands.
+
+you can tillage as many field as needed in order to produce the amount needed to fulfill the demands.
+
+left click to tillage and prepare the tiles for harvest.
+
+right click to turn them back to common grass and decrease your field production.
+
+be aware of supply - demand."
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 588.0
+margin/top = 483.0
+margin/right = 692.0
+margin/bottom = 521.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "got it"
+flat = false
+
 [connection signal="change_tile" from="Harvest/Field/Tiles" to="." method="_on_change_tile"]
 
 [connection signal="tiles_changed" from="Harvest/Field/Tiles" to="." method="_on_tiles_changed"]
 
 [connection signal="toggled" from="Button" to="." method="_on_harvest_toggled"]
+
+[connection signal="released" from="Help/Control/Button" to="Help" method="queue_free"]
 
 

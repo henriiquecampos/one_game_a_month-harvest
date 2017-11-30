@@ -96,6 +96,7 @@ autoplay = ""
 
 [node name="Button" type="Button" parent="."]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -135,6 +136,91 @@ color = Color( 0.352941, 0.698039, 0.878431, 1 )
 transform/pos = Vector2( 96.0878, 311.668 )
 texture = ExtResource( 4 )
 
+[node name="Help" type="CanvasLayer" parent="."]
+
+layer = 8
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Control" type="Control" parent="Help"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="ColorFrame" type="ColorFrame" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.199219, 0.199219, 0.199219, 0.726745 )
+
+[node name="Panel" type="Panel" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 306.0
+margin/top = 68.0
+margin/right = 711.0
+margin/bottom = 534.0
+
+[node name="Label" type="Label" parent="Help/Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 346.0
+margin/top = 95.0
+margin/right = 672.0
+margin/bottom = 379.0
+text = "welcome to the receipt screen!!
+
+here is where you rightly pay your debts, your workers' salary and get robbed from people not involved in any process of your production, i.e. the state
+
+based on your profit there will be taxes deductions and you will see what's left for you
+
+if you end up with less than $ 0,00, congratulations, you broke!"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 588.0
+margin/top = 483.0
+margin/right = 692.0
+margin/bottom = 521.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "got it"
+flat = false
+
 [connection signal="released" from="Button" to="." method="change_scene"]
+
+[connection signal="released" from="Help/Control/Button" to="Help" method="queue_free"]
 
 
