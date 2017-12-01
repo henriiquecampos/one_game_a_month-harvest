@@ -96,9 +96,9 @@ custom_constants/separation = 15
 alignment = 0
 
 [node name="Thumbnail" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"buying",
 "worker",
 "gatherer",
-"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -123,9 +123,9 @@ textures/normal = ExtResource( 5 )
 margin/right = 179.0
 
 [node name="Thumbnail1" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"buying",
 "worker",
 "specialist",
-"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -151,9 +151,9 @@ textures/normal = ExtResource( 6 )
 margin/right = 179.0
 
 [node name="Thumbnail4" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"worker",
-"engineer",
 "buying",
+"engineer",
+"worker",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -179,9 +179,9 @@ textures/normal = ExtResource( 7 )
 margin/right = 179.0
 
 [node name="Thumbnail2" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"buying",
 "worker",
 "mechanic",
-"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -211,9 +211,9 @@ margin/right = 179.0
 margin/bottom = 62.0
 
 [node name="Thumbnail3" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"buying",
 "worker",
 "plumber",
-"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -239,9 +239,9 @@ textures/normal = ExtResource( 9 )
 margin/right = 179.0
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"tillage",
-"machines",
 "buying",
+"machines",
+"tillage",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -267,8 +267,8 @@ textures/normal = ExtResource( 10 )
 margin/right = 179.0
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"machines",
 "buying",
+"machines",
 "truck",
 ] instance=ExtResource( 4 )]
 
@@ -295,9 +295,9 @@ textures/normal = ExtResource( 11 )
 margin/right = 179.0
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"harvester",
-"machines",
 "buying",
+"machines",
+"harvester",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -358,7 +358,6 @@ flat = false
 
 [node name="ContractPanel" type="ColorFrame" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -398,79 +397,61 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Contracts" type="MarginContainer" parent="ContractPanel/Panel"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 36.0
-margin/right = 593.0
-margin/bottom = 596.0
-custom_constants/margin_right = 6
-custom_constants/margin_top = 15
-custom_constants/margin_left = 15
-custom_constants/margin_bottom = 15
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ContractPanel/Panel/Contracts"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 15.0
-margin/top = 15.0
-margin/right = 587.0
-margin/bottom = 545.0
-scroll/horizontal = true
-scroll/vertical = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ContractPanel/Panel/Contracts/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContractPanel/Panel"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 572.0
-margin/bottom = 530.0
+margin/left = 15.0
+margin/top = 51.0
+margin/right = 587.0
+margin/bottom = 581.0
 custom_constants/separation = 30
 alignment = 0
 
-[node name="Contract" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
+[node name="Contract" parent="ContractPanel/Panel/VBoxContainer" instance=ExtResource( 13 )]
 
+editor/display_folded = true
 margin/bottom = 25.0
 text = "Contract i"
+description = "hey, i heard you're new in this business, so about ${amount},00 in corn so you can get it started?"
 demand = 1411
 
-[node name="Contract1" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
+[node name="Contract1" parent="ContractPanel/Panel/VBoxContainer" instance=ExtResource( 13 )]
 
+editor/display_folded = true
 margin/top = 55.0
 margin/bottom = 80.0
 text = "Contract ii"
+description = "hey, i'm running a corn cake business and I need ${amount},00 in corn to make some sweet cakes."
 demand = 2768
 
-[node name="Contract2" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
+[node name="Contract2" parent="ContractPanel/Panel/VBoxContainer" instance=ExtResource( 13 )]
 
+editor/display_folded = true
 margin/top = 110.0
 margin/bottom = 135.0
 text = "Contract iii"
+description = "hey we are starting a corn flake business and we need ${amount},00 in corn this season, can you produce it to us?"
 demand = 7218
 
-[node name="Contract3" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
+[node name="Contract3" parent="ContractPanel/Panel/VBoxContainer" instance=ExtResource( 13 )]
 
+editor/display_folded = true
 margin/top = 165.0
 margin/bottom = 190.0
 text = "Contract iv"
-demand = 806
+description = "ok so here is the pitch, we need ${amount},00 in corns so we can brew some beverage to our customers."
+demand = 9552
 
-[node name="Contract4" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
+[node name="Contract4" parent="ContractPanel/Panel/VBoxContainer" instance=ExtResource( 13 )]
 
+editor/display_folded = true
 margin/top = 220.0
 margin/bottom = 245.0
 text = "Contract v"
+description = "we have a huge demand for a carnival, our fellow supplier broke and we need ${amount},00 in corn otherwise we will broke too, can you produce it to us?"
 demand = 12841
 
 [node name="Button" type="Button" parent="ContractPanel"]
@@ -699,6 +680,7 @@ color/color = Color( 1, 0.670588, 0.729412, 1 )
 
 [node name="Help" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 8
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -781,9 +763,9 @@ flat = false
 
 [connection signal="released" from="Finish" to="." method="_on_finish_released"]
 
-[connection signal="released" from="Contracts" to="ContractPanel" method="show"]
-
 [connection signal="released" from="Contracts" to="Info" method="hide"]
+
+[connection signal="released" from="Contracts" to="ContractPanel" method="show"]
 
 [connection signal="released" from="ContractPanel/Button" to="ContractPanel" method="hide"]
 
@@ -804,3 +786,8 @@ flat = false
 [editable path="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail5"]
 [editable path="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail6"]
 [editable path="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail7"]
+[editable path="ContractPanel/Panel/VBoxContainer/Contract"]
+[editable path="ContractPanel/Panel/VBoxContainer/Contract1"]
+[editable path="ContractPanel/Panel/VBoxContainer/Contract2"]
+[editable path="ContractPanel/Panel/VBoxContainer/Contract3"]
+[editable path="ContractPanel/Panel/VBoxContainer/Contract4"]

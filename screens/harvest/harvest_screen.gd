@@ -5,6 +5,7 @@ onready var time_node = get_node("ProgressBar/Time")
 onready var time_text = time_node.get_text()
 onready var progress = get_node("ProgressBar")
 onready var tiles = get_node("Harvest/Field/Tiles")
+var player_label
 var total = 0
 export (String, FILE, "*.tscn") var next_scene
 var time = 0.0
@@ -27,6 +28,7 @@ func _ready():
 	player.set_theme(get_theme())
 	player.get_node("Info/Button").set_theme(get_theme())
 	player.get_node("Info/Panel").set_theme(get_theme())
+	player_label = player.get_node("Info/Panel/MarginContainer/Text").get("custom_colors/font_color")
 	player.get_node("Info/Panel/MarginContainer/Text").set("custom_colors/font_color", Color("f7d79d"))
 	player.get_node("Info/Button").show()
 
@@ -51,12 +53,14 @@ func _process(delta):
 		var dd = time_text.format({"time":days})
 		time_node.set_text(dd)
 		progress.set_value(current)
-		
 		set_current_tiles(int((current/total) * 6))
+	else:
+		_on_harvest_toggled(false)
 
 func _on_harvest_toggled( pressed ):
 	set_process(pressed)
 	if already_harvested:
+		player.get_node("Info/Panel/MarginContainer/Text").set("custom_colors/font_color", player_label)
 		set_process(false)
 		var t = get_node("Tween")
 		player.get_node("Company/Unities").hide()

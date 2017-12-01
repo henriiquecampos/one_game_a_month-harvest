@@ -51,7 +51,7 @@ func _execute_event(event):
 				m.price += m.price * government.machinery
 	elif event == EVENT_3:
 		new_contract_law = new_contract_law.format({"amount":government.minimum_demand})
-		for c in get_node("ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer").get_children():
+		for c in get_node("ContractPanel/Panel/VBoxContainer").get_children():
 			if c.demand > government.minimum_demand:
 				c.queue_free()
 		description.set_text(new_contract_law)

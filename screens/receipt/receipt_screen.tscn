@@ -29,10 +29,6 @@ theme/theme = ExtResource( 2 )
 script/script = ExtResource( 3 )
 next_scene = "res://screens/market/market_screen.tscn"
 
-[node name="Slide" parent="."]
-
-visibility/visible = false
-
 [node name="Panel" type="Panel" parent="."]
 
 focus/ignore_mouse = false

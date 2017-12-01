@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://screens/market/contract.gd" type="Script" id=1]
+[ext_resource path="res://screens/market/market_theme.tres" type="Theme" id=2]
 
 [node name="Contract" type="CheckBox" groups=[
 "contracts",
@@ -21,7 +22,7 @@ text = "Contract I"
 flat = false
 align = 0
 script/script = ExtResource( 1 )
-description = "Hello I want you to produce about {production} in wheat."
+description = "Hello I want you to produce about ${amount},00 in wheat."
 demand = 8648
 
 [node name="Button" type="Button" parent="."]
@@ -34,10 +35,48 @@ margin/left = 430.0
 margin/top = 0.0
 margin/right = 518.0
 margin/bottom = 29.0
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 text = "About"
 flat = false
+
+[node name="Description" type="Node2D" parent="."]
+
+visibility/visible = false
+z/z = 8
+
+[node name="Panel" type="ColorFrame" parent="Description"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 429.0
+margin/top = 31.0
+margin/right = 785.0
+margin/bottom = 172.0
+color = Color( 0.137573, 0.119629, 0.191406, 1 )
+
+[node name="Label" type="Label" parent="Description/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 17.0
+margin/top = 13.0
+margin/right = 340.0
+margin/bottom = 128.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "{about}"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="toggled" from="Button" to="." method="_on_about_toggled"]
 
 
