@@ -78,7 +78,6 @@ func sign_new_contract(signed, contract):
 		player.set_contracts(player.get_contracts() + contract.demand)
 	else:
 		player.set_contracts(player.get_contracts() - contract.demand)
-	print(player.get_contracts())
 
 func _on_finish_released():
 	var t = get_node("Tween")

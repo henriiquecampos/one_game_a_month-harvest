@@ -23,9 +23,9 @@ func _process(delta):
 	var cell = world_to_map(get_local_mouse_pos())
 	if cell.x <= 10 and cell.x >= 0 and cell.y <= 6 and cell.y >= 0:
 		if Input.is_mouse_button_pressed(1):
-			if (get_cell(cell.x, cell.y)) == 0 and (player.money - (player.tile_price/2)) >= 0:
+			if (get_cell(cell.x, cell.y)) == 0 and (player.money - (player.tile_price/4)) >= 0:
 				set_cell(cell.x, cell.y, 1)
-				player.set_money(player.tile_price/2, player.BUY)
+				player.set_money(player.tile_price/4, player.BUY)
 				player.total_tiles = get_used_cells_by_id(1).size() * player.tile_price
 				emit_signal(\"tiles_changed\", self)
 				var vfx = decrease.instance()
@@ -36,7 +36,7 @@ func _process(delta):
 		elif Input.is_mouse_button_pressed(2):
 			if (get_cell(cell.x, cell.y)) == 1:
 				set_cell(cell.x, cell.y, 0)
-				player.set_money(player.tile_price/4, player.SELL)
+				player.set_money(player.tile_price/8, player.SELL)
 				player.total_tiles = get_used_cells_by_id(1).size() * player.tile_price
 				emit_signal(\"tiles_changed\", self)
 				var vfx = decrease.instance()

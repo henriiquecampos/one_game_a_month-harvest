@@ -44,7 +44,7 @@ func set_current_tiles(value):
 		_on_change_tile(current_tile)
 
 func _process(delta):
-	if current <= total:
+	if current <= total and days < 30:
 		current += ceil((player.production * delta)/30)
 		var d = description.format({"total":player.total_tiles, "current":int(current)})
 		description_node.set_text(d)

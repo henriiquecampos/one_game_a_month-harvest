@@ -1,12 +1,12 @@
 extends Node
 var already_played = false
 var current_round = 0
-var money = 2100 setget set_money
+var money = 5000 setget set_money
 var production = 0 setget set_production
 var monthly_expenses = 0 setget set_monthly_expenses
 var unities = 0 setget set_unities
 var contracts = 0 setget set_contracts,get_contracts
-var tile_price = 200
+var tile_price = 50
 var total_tiles = 0
 var produced = 0
 onready var info_node = get_node("Info/Panel/MarginContainer/Text")
@@ -16,12 +16,12 @@ enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE, SET}
 
 func reset():
 	current_round = 0
-	money = 2100
+	money = 5000
 	production = 0
 	monthly_expenses = 0
 	unities = 0
 	contracts = 0
-	tile_price = 200
+	tile_price = 50
 	total_tiles = 0
 	produced = 0
 func set_unities(unit, type):

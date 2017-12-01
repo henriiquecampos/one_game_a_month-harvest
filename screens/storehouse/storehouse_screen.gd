@@ -45,8 +45,6 @@ func populate_unities():
 	pass
 
 func _on_finish_released():
-	if get_node("Event") != null:
-		get_node("Event")._option_chosen(0)
 	var t = get_node("Tween")
 	player.get_node("Company/Unities").hide()
 	player.get_node("Info/Button").hide()

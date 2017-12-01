@@ -27,7 +27,6 @@ func _ready():
 		d.get_node("Animator").play("text")
 		yield(d.get_node("Animator"), "finished")
 		earn -= earn * government.taxes[tax]
-	print(earn)
 	total += earn
 	total -= player.monthly_expenses
 	var d = get_node("Receipt/List/Label").duplicate()
