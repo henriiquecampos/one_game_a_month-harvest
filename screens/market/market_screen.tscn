@@ -97,8 +97,8 @@ alignment = 0
 
 [node name="Thumbnail" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
 "worker",
-"buying",
 "gatherer",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -124,8 +124,8 @@ margin/right = 179.0
 
 [node name="Thumbnail1" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
 "worker",
-"buying",
 "specialist",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -152,8 +152,8 @@ margin/right = 179.0
 
 [node name="Thumbnail4" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
 "worker",
-"buying",
 "engineer",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -180,8 +180,8 @@ margin/right = 179.0
 
 [node name="Thumbnail2" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
 "worker",
-"buying",
 "mechanic",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -212,8 +212,8 @@ margin/bottom = 62.0
 
 [node name="Thumbnail3" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
 "worker",
-"buying",
 "plumber",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -239,9 +239,9 @@ textures/normal = ExtResource( 9 )
 margin/right = 179.0
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
-"machines",
 "tillage",
+"machines",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -267,8 +267,8 @@ textures/normal = ExtResource( 10 )
 margin/right = 179.0
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
+"buying",
 "truck",
 ] instance=ExtResource( 4 )]
 
@@ -295,9 +295,9 @@ textures/normal = ExtResource( 11 )
 margin/right = 179.0
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
-"machines",
 "harvester",
+"machines",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true

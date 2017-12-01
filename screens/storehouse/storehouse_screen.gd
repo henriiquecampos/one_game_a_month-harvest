@@ -20,6 +20,7 @@ func _ready():
 	add_child(s)
 	get_node("Foreground/Star").set_pos(player.get_node("Company/Unities").get_pos())
 	get_node("Foreground/Floater").set_pos(get_node("Finish").get_end())
+	player.get_node("Info/Button").show()
 func _execute_event(event):
 	var s = null
 	if event == EVENT_1:

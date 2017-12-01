@@ -67,10 +67,10 @@ func _ready():
 		var g = load("res://objects/gameover.tscn").instance()
 		add_child(g)
 	else:
-		if player.current_round >= 5:
+		if player.current_round > 4:
 			#Win Condition
-#			next_scene = 
-			pass
+			next_scene = "res://screens/win/win_screen.tscn"
+			change_scene()
 		get_node("Button").show()
 func change_scene():
 	var t = get_node("Tween")

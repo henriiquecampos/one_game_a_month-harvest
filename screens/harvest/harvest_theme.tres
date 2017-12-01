@@ -1,6 +1,10 @@
-[gd_resource type="Theme" load_steps=9 format=1]
+[gd_resource type="Theme" load_steps=16 format=1]
 
-[ext_resource path="res://fonts/GaroaHackerClubeBold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://screens/win/increase.png" type="Texture" id=1]
+[ext_resource path="res://screens/win/increase_highlit.png" type="Texture" id=2]
+[ext_resource path="res://screens/win/decrease.png" type="Texture" id=3]
+[ext_resource path="res://screens/win/decrease_highlit.png" type="Texture" id=4]
+[ext_resource path="res://fonts/GaroaHackerClubeBold.otf" type="DynamicFontData" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -80,12 +84,51 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
+[sub_resource type="StyleBoxFlat" id=8]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.886275, 0.482353, 0.321569, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=9]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.854902, 0.337255, 0.32549, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=10]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 1, 0.815686, 0.494118, 1 )
+light_color = Color( 0.8, 0.8, 0.8, 1 )
+dark_color = Color( 0.8, 0.8, 0.8, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
 [sub_resource type="DynamicFont" id=7]
 
 font/size = 16
 font/use_mipmaps = true
 font/use_filter = true
-font/font = ExtResource( 1 )
+font/font = ExtResource( 5 )
 
 [resource]
 
@@ -116,4 +159,12 @@ ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
 ProgressBar/styles/bg = SubResource( 5 )
 ProgressBar/styles/fg = SubResource( 6 )
+VScrollBar/icons/decrement = ExtResource( 1 )
+VScrollBar/icons/decrement_hilite = ExtResource( 2 )
+VScrollBar/icons/increment = ExtResource( 3 )
+VScrollBar/icons/increment_hilite = ExtResource( 4 )
+VScrollBar/styles/grabber = SubResource( 8 )
+VScrollBar/styles/grabber_hilite = SubResource( 9 )
+VScrollBar/styles/scroll = SubResource( 10 )
+VScrollBar/styles/scroll_focus = null
 

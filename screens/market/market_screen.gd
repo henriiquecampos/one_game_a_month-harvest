@@ -25,6 +25,7 @@ func _ready():
 	player.get_node("Company/Unities").show()
 	var fore = load("res://screens/market/foreground.tscn").instance()
 	add_child(fore)
+	player.get_node("Info/Button").show()
 
 func _execute_event(event):
 	._execute_event(event)

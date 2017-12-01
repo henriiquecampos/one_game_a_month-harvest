@@ -1,7 +1,7 @@
 extends Node
 var already_played = false
 var current_round = 0
-var money = 1500 setget set_money
+var money = 2100 setget set_money
 var production = 0 setget set_production
 var monthly_expenses = 0 setget set_monthly_expenses
 var unities = 0 setget set_unities
@@ -16,7 +16,7 @@ enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE, SET}
 
 func reset():
 	current_round = 0
-	money = 1500
+	money = 2100
 	production = 0
 	monthly_expenses = 0
 	unities = 0

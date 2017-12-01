@@ -28,6 +28,7 @@ func _ready():
 	player.get_node("Info/Button").set_theme(get_theme())
 	player.get_node("Info/Panel").set_theme(get_theme())
 	player.get_node("Info/Panel/MarginContainer/Text").set("custom_colors/font_color", Color("f7d79d"))
+	player.get_node("Info/Button").show()
 
 func _on_tiles_changed( tilemap ):
 	total = player.total_tiles
