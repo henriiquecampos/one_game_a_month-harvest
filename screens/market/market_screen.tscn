@@ -1,27 +1,19 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/market/market_theme.tres" type="Theme" id=2]
 [ext_resource path="res://screens/market/market_screen.gd" type="Script" id=3]
-[ext_resource path="res://fonts/GaroaHackerClubeBold.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://screens/market/thumbnails/thumbnail.tscn" type="PackedScene" id=5]
-[ext_resource path="res://screens/market/thumbnails/gatherer.png" type="Texture" id=6]
-[ext_resource path="res://screens/market/thumbnails/soil_specialist.png" type="Texture" id=7]
-[ext_resource path="res://screens/market/thumbnails/botanic_engineer.png" type="Texture" id=8]
-[ext_resource path="res://screens/market/thumbnails/mechanic.png" type="Texture" id=9]
-[ext_resource path="res://screens/market/thumbnails/plumber.png" type="Texture" id=10]
-[ext_resource path="res://screens/market/thumbnails/tillage.png" type="Texture" id=11]
-[ext_resource path="res://screens/market/thumbnails/truck.png" type="Texture" id=12]
-[ext_resource path="res://screens/market/thumbnails/harvester.png" type="Texture" id=13]
-[ext_resource path="res://screens/market/contract.tscn" type="PackedScene" id=14]
-[ext_resource path="res://screens/market/petals.png" type="Texture" id=15]
-
-[sub_resource type="DynamicFont" id=1]
-
-font/size = 86
-font/use_mipmaps = true
-font/use_filter = true
-font/font = ExtResource( 4 )
+[ext_resource path="res://screens/market/thumbnails/thumbnail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://screens/market/thumbnails/gatherer.png" type="Texture" id=5]
+[ext_resource path="res://screens/market/thumbnails/soil_specialist.png" type="Texture" id=6]
+[ext_resource path="res://screens/market/thumbnails/botanic_engineer.png" type="Texture" id=7]
+[ext_resource path="res://screens/market/thumbnails/mechanic.png" type="Texture" id=8]
+[ext_resource path="res://screens/market/thumbnails/plumber.png" type="Texture" id=9]
+[ext_resource path="res://screens/market/thumbnails/tillage.png" type="Texture" id=10]
+[ext_resource path="res://screens/market/thumbnails/truck.png" type="Texture" id=11]
+[ext_resource path="res://screens/market/thumbnails/harvester.png" type="Texture" id=12]
+[ext_resource path="res://screens/market/contract.tscn" type="PackedScene" id=13]
+[ext_resource path="res://screens/market/petals.png" type="Texture" id=14]
 
 [node name="MarketScreen" instance=ExtResource( 1 )]
 
@@ -38,25 +30,6 @@ new_contract_law = "The government is intervening on current agriculture contrac
 
 No hirers can demand more than ${amount},00 in production"
 next_scene = "res://screens/storehouse/storehouse_screen.tscn"
-
-[node name="Title" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 29.0
-margin/right = 1025.0
-margin/bottom = 164.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 0.670588, 0.729412, 1 )
-text = "market!!"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Buying" type="VBoxContainer" parent="."]
 
@@ -111,7 +84,6 @@ scroll/vertical = true
 
 [node name="List" type="VBoxContainer" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -124,16 +96,16 @@ custom_constants/separation = 15
 alignment = 0
 
 [node name="Thumbnail" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"worker",
 "buying",
 "gatherer",
-"worker",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/right = 179.0
 margin/bottom = 64.0
 price = 0.0
-monthly_cost = 800.0
+monthly_cost = 500.0
 production = 670.0
 type = 0
 name = "Gatherer"
@@ -144,17 +116,17 @@ Type: {type}"
 
 [node name="Button" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail"]
 
-textures/normal = ExtResource( 6 )
+textures/normal = ExtResource( 5 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail"]
 
 margin/right = 179.0
 
 [node name="Thumbnail1" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"worker",
 "buying",
 "specialist",
-"worker",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/top = 79.0
@@ -172,24 +144,24 @@ Type: {type}"
 
 [node name="Button" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail1"]
 
-textures/normal = ExtResource( 7 )
+textures/normal = ExtResource( 6 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail1"]
 
 margin/right = 179.0
 
 [node name="Thumbnail4" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "worker",
+"buying",
 "engineer",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/top = 158.0
 margin/right = 179.0
 margin/bottom = 222.0
 price = 0.0
-monthly_cost = 900.0
+monthly_cost = 1100.0
 production = 1500.0
 type = 0
 name = "Botanic Engineer"
@@ -200,17 +172,17 @@ Type: {type}"
 
 [node name="Button" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail4"]
 
-textures/normal = ExtResource( 8 )
+textures/normal = ExtResource( 7 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail4"]
 
 margin/right = 179.0
 
 [node name="Thumbnail2" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
+"worker",
 "buying",
 "mechanic",
-"worker",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/top = 237.0
@@ -230,7 +202,7 @@ Type: {type}"
 
 margin/right = 62.0
 margin/bottom = 62.0
-textures/normal = ExtResource( 9 )
+textures/normal = ExtResource( 8 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail2"]
 
@@ -239,18 +211,18 @@ margin/right = 179.0
 margin/bottom = 62.0
 
 [node name="Thumbnail3" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "worker",
+"buying",
 "plumber",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/top = 314.0
 margin/right = 179.0
 margin/bottom = 378.0
 price = 0.0
-monthly_cost = 1200.0
-production = 1500.0
+monthly_cost = 800.0
+production = 1400.0
 type = 0
 name = "Plumber"
 description = "{name}
@@ -260,7 +232,7 @@ Type: {type}"
 
 [node name="Button" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail3"]
 
-textures/normal = ExtResource( 10 )
+textures/normal = ExtResource( 9 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail3"]
 
@@ -270,7 +242,7 @@ margin/right = 179.0
 "buying",
 "machines",
 "tillage",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/top = 393.0
@@ -288,7 +260,7 @@ Type: {type}"
 
 [node name="Button" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail5"]
 
-textures/normal = ExtResource( 11 )
+textures/normal = ExtResource( 10 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail5"]
 
@@ -298,14 +270,15 @@ margin/right = 179.0
 "buying",
 "machines",
 "truck",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/top = 472.0
 margin/right = 179.0
 margin/bottom = 536.0
-price = 750.0
-production = 1800.0
+price = 3000.0
+monthly_cost = 210.0
+production = 3800.0
 name = "Truck"
 description = "{name}
 Price: ${price}
@@ -315,7 +288,7 @@ Type: {type}"
 
 [node name="Button" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail6"]
 
-textures/normal = ExtResource( 12 )
+textures/normal = ExtResource( 11 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail6"]
 
@@ -325,14 +298,15 @@ margin/right = 179.0
 "buying",
 "machines",
 "harvester",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 editor/display_folded = true
 margin/top = 551.0
 margin/right = 179.0
 margin/bottom = 615.0
-price = 500.0
+price = 4000.0
 monthly_cost = 500.0
+production = 8000.0
 name = "Harvester"
 description = "{name}
 Price: ${price}
@@ -342,7 +316,7 @@ Type: {type}"
 
 [node name="Button" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail7"]
 
-textures/normal = ExtResource( 13 )
+textures/normal = ExtResource( 12 )
 
 [node name="Description" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail7"]
 
@@ -465,34 +439,34 @@ margin/bottom = 530.0
 custom_constants/separation = 30
 alignment = 0
 
-[node name="Contract" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 14 )]
+[node name="Contract" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
 
 margin/bottom = 25.0
 text = "Contract i"
 demand = 1411
 
-[node name="Contract1" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 14 )]
+[node name="Contract1" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
 
 margin/top = 55.0
 margin/bottom = 80.0
 text = "Contract ii"
 demand = 2768
 
-[node name="Contract2" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 14 )]
+[node name="Contract2" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
 
 margin/top = 110.0
 margin/bottom = 135.0
 text = "Contract iii"
 demand = 7218
 
-[node name="Contract3" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 14 )]
+[node name="Contract3" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
 
 margin/top = 165.0
 margin/bottom = 190.0
 text = "Contract iv"
 demand = 806
 
-[node name="Contract4" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 14 )]
+[node name="Contract4" parent="ContractPanel/Panel/Contracts/ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
 
 margin/top = 220.0
 margin/bottom = 245.0
@@ -670,7 +644,6 @@ flat = false
 
 [node name="Background" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = -5
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -703,7 +676,7 @@ config/amount = 32
 config/lifetime = 16.0
 config/process_mode = 1
 config/half_extents = Vector2( 512, 0 )
-config/texture = ExtResource( 15 )
+config/texture = ExtResource( 14 )
 params/direction = 0.0
 params/spread = 10.0
 params/linear_velocity = 20.0
@@ -724,6 +697,88 @@ randomness/spin_velocity = 1.0
 randomness/hue_variation = 0.1
 color/color = Color( 1, 0.670588, 0.729412, 1 )
 
+[node name="Help" type="CanvasLayer" parent="."]
+
+layer = 8
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Control" type="Control" parent="Help"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="ColorFrame" type="ColorFrame" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.199219, 0.199219, 0.199219, 0.726745 )
+
+[node name="Panel" type="Panel" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 306.0
+margin/top = 68.0
+margin/right = 711.0
+margin/bottom = 534.0
+
+[node name="Label" type="Label" parent="Help/Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 346.0
+margin/top = 95.0
+margin/right = 672.0
+margin/bottom = 319.0
+text = "welcome to the market screen!!
+
+here you will have access to avaiable workers and machines for this season
+you also have access to your current company, with your employees and machines.
+
+Here you can fire, hire, buy, sell and also sign contracts to accomplish and raise some money"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 588.0
+margin/top = 483.0
+margin/right = 692.0
+margin/bottom = 521.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "got it"
+flat = false
+
 [connection signal="released" from="Finish" to="." method="_on_finish_released"]
 
 [connection signal="released" from="Contracts" to="ContractPanel" method="show"]
@@ -737,6 +792,8 @@ color/color = Color( 1, 0.670588, 0.729412, 1 )
 [connection signal="released" from="Confirm/Ok" to="Confirm" method="_on_ok_released"]
 
 [connection signal="released" from="Confirm/Cancel" to="Confirm" method="hide"]
+
+[connection signal="released" from="Help/Control/Button" to="Help" method="queue_free"]
 
 
 [editable path="Buying/PanelContainer/MarginContainer/ScrollingContainer/List/Thumbnail"]

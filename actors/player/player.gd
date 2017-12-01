@@ -1,18 +1,29 @@
 extends Node
-
-var money = 100000 setget set_money
+var already_played = false
+var current_round = 0
+var money = 1500 setget set_money
 var production = 0 setget set_production
 var monthly_expenses = 0 setget set_monthly_expenses
 var unities = 0 setget set_unities
 var contracts = 0 setget set_contracts,get_contracts
 var tile_price = 200
 var total_tiles = 0
-var earned = 0
+var produced = 0
 onready var info_node = get_node("Info/Panel/MarginContainer/Text")
 onready var info_text = get_node("Info/Panel/MarginContainer/Text").get_text()
 onready var company = get_node("Company/Unities/PanelContainer/MarginContainer/ScrollingContainer/List")
 enum{ADD, REMOVE, SELL, BUY, HIRE, FIRE, SET}
 
+func reset():
+	current_round = 0
+	money = 1500
+	production = 0
+	monthly_expenses = 0
+	unities = 0
+	contracts = 0
+	tile_price = 200
+	total_tiles = 0
+	produced = 0
 func set_unities(unit, type):
 	if type == ADD:
 		set_monthly_expenses(unit.monthly_cost, HIRE)
@@ -59,6 +70,6 @@ func _on_info_toggled( pressed ):
 		get_node("Info/Background").hide()
 
 func update_info():
-	var d = info_text.format({"money":money, "production":production, "expenses":monthly_expenses, 
+	var d = info_text.format({"money":money, "production":production, "expenses":int(monthly_expenses), 
 	"demand":contracts, "tiles":total_tiles, "earning":int(contracts - monthly_expenses)})
 	info_node.set_text(d)

@@ -1,12 +1,43 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://screens/abstract_screen.tscn" type="PackedScene" id=1]
-[ext_resource path="res://screens/receipt/receipt_screen.gd" type="Script" id=2]
+[ext_resource path="res://screens/receipt/receipt_theme.tres" type="Theme" id=2]
+[ext_resource path="res://screens/receipt/receipt_screen.gd" type="Script" id=3]
+[ext_resource path="res://screens/receipt/snowman.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "text"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="ReceiptScreen" instance=ExtResource( 1 )]
 
-script/script = ExtResource( 2 )
+theme/theme = ExtResource( 2 )
+script/script = ExtResource( 3 )
 next_scene = "res://screens/market/market_screen.tscn"
+
+[node name="Panel" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 333.0
+margin/top = 0.0
+margin/right = 692.0
+margin/bottom = 600.0
 
 [node name="Receipt" type="ScrollContainer" parent="."]
 
@@ -14,10 +45,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 289.0
-margin/top = 0.0
-margin/right = 735.0
-margin/bottom = 600.0
+margin/left = 358.0
+margin/top = 30.0
+margin/right = 666.0
+margin/bottom = 539.0
 scroll/horizontal = true
 scroll/vertical = true
 
@@ -29,44 +60,167 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 446.0
-margin/bottom = 600.0
+margin/right = 308.0
+margin/bottom = 509.0
 alignment = 0
 
 [node name="Label" type="Label" parent="Receipt/List"]
 
+rect/min_size = Vector2( 0, 32 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 446.0
-margin/bottom = 14.0
-text = "Your Receipt"
-align = 3
+margin/right = 308.0
+margin/bottom = 32.0
+text = "your receipt"
+align = 1
 valign = 1
+autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Animator" type="AnimationPlayer" parent="Receipt/List/Label"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/text = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
 [node name="Button" type="Button" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 494.0
+margin/top = 557.0
+margin/right = 684.0
+margin/bottom = 589.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Next Season"
+flat = false
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+layer = -6
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="ColorFrame" type="ColorFrame" parent="Background"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 881.0
-margin/top = 551.0
-margin/right = 1005.0
-margin/bottom = 571.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.352941, 0.698039, 0.878431, 1 )
+
+[node name="Snowman" type="Sprite" parent="Background"]
+
+transform/pos = Vector2( 96.0878, 311.668 )
+texture = ExtResource( 4 )
+
+[node name="Help" type="CanvasLayer" parent="."]
+
+layer = 8
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Control" type="Control" parent="Help"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="ColorFrame" type="ColorFrame" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+color = Color( 0.199219, 0.199219, 0.199219, 0.726745 )
+
+[node name="Panel" type="Panel" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 306.0
+margin/top = 68.0
+margin/right = 711.0
+margin/bottom = 534.0
+
+[node name="Label" type="Label" parent="Help/Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 346.0
+margin/top = 95.0
+margin/right = 672.0
+margin/bottom = 379.0
+text = "welcome to the receipt screen!!
+
+here is where you rightly pay your debts, your workers' salary and get robbed from people not involved in any process of your production, i.e. the state
+
+based on your profit there will be taxes deductions and you will see what's left for you
+
+if you end up with less than $ 0,00, congratulations, you broke!"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="Help/Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 588.0
+margin/top = 483.0
+margin/right = 692.0
+margin/bottom = 521.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-text = "Start Next Season"
+text = "got it"
 flat = false
 
 [connection signal="released" from="Button" to="." method="change_scene"]
+
+[connection signal="released" from="Help/Control/Button" to="Help" method="queue_free"]
 
 

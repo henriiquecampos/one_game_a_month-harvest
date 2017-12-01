@@ -6,6 +6,7 @@ export (String, MULTILINE) var new_contract_law
 export (String, FILE, "*.tscn") var next_scene
 
 func _ready():
+	player.current_round += 1
 	for b in get_tree().get_nodes_in_group("buying"):
 		b.get_node("Button").connect("released", self, "buy_unit", [b])
 	for c in get_tree().get_nodes_in_group("contracts"):
@@ -13,6 +14,11 @@ func _ready():
 	for s in get_tree().get_nodes_in_group("selling"):
 		s.get_node("Button").connect("released", self, "sell_unit", [s])
 	yield(get_node("Tween"), "tween_complete")
+	if !player.already_played:
+		get_node("Help/Control").show()
+	else:
+		get_node("Help").queue_free()
+	yield(get_node("Help"), "exit_tree")
 	player.get_node("Company/Unities").set_theme(get_theme())
 	for i in player.get_node("Info").get_children():
 		i.set_theme(get_theme())
@@ -52,7 +58,7 @@ func _execute_event(event):
 		t.update_description()
 	
 func buy_unit(unit):
-	if (player.money - unit.price) >= 0:
+	if (player.money - unit.price) >= 0 and (unit.monthly_cost + player.monthly_expenses) <= player.money:
 		player.set_money(unit.price, player.BUY)
 		var u = unit.duplicate()
 		u.price *= 0.5

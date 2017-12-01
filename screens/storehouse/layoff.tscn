@@ -40,7 +40,6 @@ func _option_chosen(option):
 
 [node name="Layoff" type="ColorFrame"]
 
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -78,20 +77,21 @@ scroll/vertical = true
 
 [node name="Text" type="Label" parent="Panel/Description"]
 
-rect/min_size = Vector2( 0, 175 )
+rect/min_size = Vector2( 0, 200 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 354.0
-margin/bottom = 175.0
-text = "Due to the government subsidies for other industry segments your workers are inclined to leave your company to work with these subsidized segments. You can:
+margin/right = 342.0
+margin/bottom = 200.0
+text = "due to the government subsidies for other industry segments your workers are inclined to leave your company to work with these subsidized segments. You can:
 
-Let these {amount} workers fire up themselves, for a loss of ${production},00 in production.
+let these {amount} workers fire up themselves, for a loss of ${production},00 in production.
 
-Try to keep them by increasing their wage in {raise}% for a total of ${total},00 in monthly expenses."
+try to keep them by increasing their wage in {raise}% for a total of ${total},00 in monthly expenses."
+valign = 1
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -104,9 +104,9 @@ focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 18.0
-margin/top = 150.0
+margin/top = 156.0
 margin/right = 360.0
-margin/bottom = 195.0
+margin/bottom = 189.0
 custom_constants/separation = 15
 alignment = 0
 
@@ -115,33 +115,35 @@ alignment = 0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
-size_flags/vertical = 1
+size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 12.0
+margin/top = 0.0
 margin/right = 163.0
-margin/bottom = 32.0
+margin/bottom = 33.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Let them go"
 flat = false
+clip_text = true
 
 [node name="Raise" type="Button" parent="Panel/Options"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
-size_flags/vertical = 1
+size_flags/vertical = 3
 margin/left = 178.0
-margin/top = 12.0
+margin/top = 0.0
 margin/right = 342.0
-margin/bottom = 32.0
+margin/bottom = 33.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Raise their wage"
 flat = false
+clip_text = true
 
 

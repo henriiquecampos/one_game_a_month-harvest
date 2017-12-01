@@ -1,17 +1,44 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://levels/harvest/tile_00.png" type="Texture" id=1]
+[ext_resource path="res://levels/harvest/tile_01.png" type="Texture" id=2]
+[ext_resource path="res://levels/harvest/tile_02.png" type="Texture" id=3]
+[ext_resource path="res://levels/harvest/tile_03.png" type="Texture" id=4]
+[ext_resource path="res://levels/harvest/tile_04.png" type="Texture" id=5]
+[ext_resource path="res://levels/harvest/tile_05.png" type="Texture" id=6]
 
 [node name="Tileset" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Grass" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
-modulate = Color( 0.367065, 0.96875, 0.517487, 1 )
+centered = false
 
-[node name="Sprite1" type="Sprite" parent="."]
+[node name="Tillage" type="Sprite" parent="."]
 
-texture = ExtResource( 1 )
-modulate = Color( 0.3125, 0.256348, 0.268192, 1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Seed" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sproud" type="Sprite" parent="."]
+
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Growth" type="Sprite" parent="."]
+
+texture = ExtResource( 5 )
+centered = false
+offset = Vector2( 0, -10 )
+
+[node name="Harvest" type="Sprite" parent="."]
+
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( 0, -45 )
 
 
