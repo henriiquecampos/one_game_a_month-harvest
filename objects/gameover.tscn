@@ -9,10 +9,10 @@ script/source = "extends CanvasLayer
 func _ready():
 	player.hide()
 func _on_button_released():
-	player.reset()
-	for c in player.company:
+	for c in player.company.get_children():
 		c.queue_free()
 	government.reset()
+	player.reset()
 	get_tree().change_scene(get_parent().next_scene)"
 
 [sub_resource type="Animation" id=2]

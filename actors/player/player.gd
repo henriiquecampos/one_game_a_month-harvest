@@ -1,8 +1,8 @@
 extends Node
 var already_played = false
 var current_round = 0
-var money = 5000 setget set_money
-var production = 0 setget set_production
+var money = -50 setget set_money
+var production = 2000 setget set_production
 var monthly_expenses = 0 setget set_monthly_expenses
 var unities = 0 setget set_unities
 var contracts = 0 setget set_contracts,get_contracts

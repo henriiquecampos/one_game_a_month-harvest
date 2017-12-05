@@ -72,7 +72,10 @@ func _on_harvest_toggled( pressed ):
 	if pressed:
 		get_node("Button").set_text("Stop")
 	else:
-		player.tile_price += player.contracts - current
+		if player.contracts > current:
+			player.tile_price += player.tile_price * 0.10
+		else:
+			player.tile_price -= player.tile_price * 0.10
 		player.produced = current
 		get_node("Button").set_text("Deliver")
 		already_harvested = true

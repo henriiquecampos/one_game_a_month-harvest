@@ -106,7 +106,7 @@ margin/right = 179.0
 margin/bottom = 64.0
 price = 0.0
 monthly_cost = 500.0
-production = 670.0
+production = 850.0
 type = 0
 name = "Gatherer"
 description = "{name}
@@ -134,7 +134,7 @@ margin/right = 179.0
 margin/bottom = 143.0
 price = 0.0
 monthly_cost = 3000.0
-production = 3100.0
+production = 4200.0
 type = 0
 name = "Soil Specialist"
 description = "{name}
@@ -162,7 +162,7 @@ margin/right = 179.0
 margin/bottom = 222.0
 price = 0.0
 monthly_cost = 1100.0
-production = 1500.0
+production = 1900.0
 type = 0
 name = "Botanic Engineer"
 description = "{name}
@@ -190,7 +190,7 @@ margin/right = 179.0
 margin/bottom = 299.0
 price = 0.0
 monthly_cost = 1200.0
-production = 1500.0
+production = 1800.0
 type = 0
 name = "Mechanic"
 description = "{name}
@@ -222,7 +222,7 @@ margin/right = 179.0
 margin/bottom = 378.0
 price = 0.0
 monthly_cost = 800.0
-production = 1400.0
+production = 1600.0
 type = 0
 name = "Plumber"
 description = "{name}
@@ -239,8 +239,8 @@ textures/normal = ExtResource( 9 )
 margin/right = 179.0
 
 [node name="Thumbnail5" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
+"buying",
 "tillage",
 ] instance=ExtResource( 4 )]
 
@@ -267,8 +267,8 @@ textures/normal = ExtResource( 10 )
 margin/right = 179.0
 
 [node name="Thumbnail6" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
+"buying",
 "truck",
 ] instance=ExtResource( 4 )]
 
@@ -295,9 +295,9 @@ textures/normal = ExtResource( 11 )
 margin/right = 179.0
 
 [node name="Thumbnail7" parent="Buying/PanelContainer/MarginContainer/ScrollingContainer/List" groups=[
-"buying",
 "machines",
 "harvester",
+"buying",
 ] instance=ExtResource( 4 )]
 
 editor/display_folded = true
@@ -763,9 +763,9 @@ flat = false
 
 [connection signal="released" from="Finish" to="." method="_on_finish_released"]
 
-[connection signal="released" from="Contracts" to="Info" method="hide"]
-
 [connection signal="released" from="Contracts" to="ContractPanel" method="show"]
+
+[connection signal="released" from="Contracts" to="Info" method="hide"]
 
 [connection signal="released" from="ContractPanel/Button" to="ContractPanel" method="hide"]
 
